@@ -7,8 +7,8 @@
         <div class="pageTitle">도서 검색</div>
         <div class="searchBox">
             <div class="searchBox2">
-            <input type="text" placeholder="도서명을 입력해주세요.">
-        </div>
+                <input type="text" placeholder="도서명을 입력해주세요.">
+            </div>
             <button class="searchBtn">검색</button>
         </div>
     </body>

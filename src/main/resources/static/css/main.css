@@ -1,4 +1,4 @@
-/*bookSearch, bookList 스타지*/
+/*bookSearch, bookList 스타일*/
 /*폰트*/
 @font-face {
     font-family: 'reco';
@@ -9,11 +9,14 @@
     font-family: 'skybori';
     src: url('font/skybori.ttf') format('truetype');
 }
+
 /*폰트 끝*/
+
+/*bookSearch*/
 /*검색 박스 디자인*/
-.searchBox{
+.searchBox {
     width: 800px;
-    height:80px;
+    height: 80px;
     background-color: #EFE7DD;
     border-radius: 50px;
     margin: 30px auto;
@@ -22,10 +25,11 @@
     align-items: center;
     justify-content: center;
 }
-.searchBox2{
+
+.searchBox2 {
     position: relative;
     width: 650px;
-    height:70px;
+    height: 70px;
     background-color: #ffffff;
     border-radius: 50px 0 0 50px;
     display: flex;
@@ -34,9 +38,9 @@
 }
 
 /*검색 창*/
-input{
+input {
     width: 650px;
-    height:70px;
+    height: 70px;
     background-color: #ffffff;
     border: none;
     border-radius: 50px 0 0 50px;
@@ -49,8 +53,9 @@ input{
     color: #A19890;
     line-height: 70px;
 }
+
 /*검색 버튼*/
-.searchBtn{
+.searchBtn {
     color: white;
     font-family: 'reco', sans-serif;
     font-size: 32px;
@@ -62,4 +67,62 @@ input{
     height: 80px;
     line-height: 80px;
     cursor: pointer;
+}
+
+/*bookSearch 끝*/
+/*bookList*/
+/*도서 목록 디자인 박스*/
+.listBox {
+    position: relative;
+    width: 910px;
+    min-height: 200px;
+    height: auto;
+    border-radius: 50px;
+    border: 5px solid #EFE7DD;
+    margin: 30px auto;
+    text-align: center;
+    padding: 0;
+}
+
+.listBox2 {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 910px; /* 수정된 부분: 전체 너비에 맞춤 */
+    height: 70px;
+    border-radius: 50px 50px 0 0;
+    border-bottom: 5px solid #EFE7DD;
+    border-left: 5px solid #EFE7DD;
+    border-right: 5px solid #EFE7DD;
+    background-color: #F9F2E8;
+    font-weight: bold;
+    line-height: 70px;
+    text-align: center;
+}
+
+.listTextBox {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.listTextBox li {
+    border-right: 1px solid #EFE7DD;
+    padding: 20 30px; /* 상하 여백 추가 */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+}
+
+.listTextBox li:last-child {
+    border-right: none;
+}
+.listItem{
+    width: 130px;
+    font-size: 20px;
 }
