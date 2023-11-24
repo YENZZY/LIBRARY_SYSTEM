@@ -10,8 +10,9 @@
 <div id="mainBody">
     <%@ include file="/WEB-INF/views/library/book/bookSearch.jsp" %>
     <%@ include file="/WEB-INF/views/library/book/bookList.jsp" %>
+
+    <div>hello world</div>
 </div>
-<h2>hello world</h2>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
 </html>
