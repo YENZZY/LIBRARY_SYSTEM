@@ -13,7 +13,7 @@
             로그인
         </div>
         <ul class="loginForm">
-            <li>&nbsp아이디&nbsp&nbsp
+            <li>아이디
                 <input type="text" placeholder="아이디를 입력해주세요.">
             </li>
             <li>비밀번호

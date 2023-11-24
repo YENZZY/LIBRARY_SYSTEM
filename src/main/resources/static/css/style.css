@@ -66,4 +66,5 @@ body {
 /*placeholder 색상*/
 input::placeholder {
     color: #DED2C5;
+    text-align: center;
 }
