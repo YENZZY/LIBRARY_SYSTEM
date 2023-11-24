@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <title>도서 관리 시스템</title>
     </head>
     <body>
         <div class="pageTitle">도서 검색</div>

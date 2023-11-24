@@ -82,6 +82,7 @@ input {
     margin: 30px auto;
     text-align: center;
     padding: 0;
+
 }
 
 .listBox2 {
@@ -112,7 +113,7 @@ input {
 
 .listTextBox li {
     border-right: 1px solid #EFE7DD;
-    padding: 20 30px; /* 상하 여백 추가 */
+    padding: 20px 30px; /* 상하 여백 추가 */
     text-align: center;
     align-items: center;
     justify-content: center;

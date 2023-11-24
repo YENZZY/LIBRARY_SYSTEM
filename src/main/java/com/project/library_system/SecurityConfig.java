@@ -19,7 +19,9 @@ public class SecurityConfig {
                                 .requestMatchers("/login").permitAll()
                                 .requestMatchers("/signUp").permitAll()
                                 .anyRequest().authenticated()
+
                 );
+
         return http.build();
     }
 }

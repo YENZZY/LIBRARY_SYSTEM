@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <title>도서 관리 시스템</title>
 </head>
 <body>
 <div class="pageTitle">도서 목록</div>
@@ -26,6 +27,7 @@
         <li class="listItem">2000</li>
         <li class="listItem">대출 가능</li>
     </ul>
+<%--    삭제할 것들--%>
     <ul class="listTextBox">
         <li class="listItem">2</li>
         <li class="listItem">해리포터</li>
@@ -71,6 +73,8 @@
         <li class="listItem">1998</li>
         <li class="listItem">대출 중</li>
     </ul>
+<%--    삭제할 것들--%>
 </div>
+<div></div>
 </body>
 </html>

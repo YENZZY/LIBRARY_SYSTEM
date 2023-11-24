@@ -63,3 +63,7 @@ body {
     font-size: 32px;
 }
 
+/*placeholder 색상*/
+input::placeholder {
+    color: #DED2C5;
+}

@@ -1,0 +1,92 @@
+/* login 디자인 */
+.loginBox {
+    position: relative;
+    width: 540px;
+    height: 330px;
+    border: 5px solid #EFE7DD;
+    border-radius: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top:80px;
+}
+
+.loginBox2 {
+    position: absolute;
+    top: 0;
+    width: 540px;
+    height: 70px;
+    border-bottom: 5px solid #EFE7DD;
+    border-left: 5px solid #EFE7DD;
+    border-right: 5px solid #EFE7DD;
+    border-radius: 50px 50px 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F9F2E8;
+    font-size: 30px;
+    font-family: 'reco', sans-serif;
+    line-height: 70px;
+    padding-top: 10px;
+}
+
+/* 아이디, 비밀번호 인풋 박스 디자인 */
+.loginForm {
+    width: 480px;
+    height: 100px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.loginForm li {
+    width: 480px;
+    list-style: none;
+    height: 60px;
+    font-size: 24px;
+    font-family: 'reco', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    line-height: 60px;
+    margin: 10px 20px 0 0;
+}
+
+.loginForm input {
+    width: 300px;
+    height: 60px;
+    border-radius: 80px;
+    border: 5px solid #EFE7DD;
+    font-size: 24px;
+    font-family: 'skybori', sans-serif;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.btnstyle {
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 40px auto;
+}
+
+.btnstyle button {
+    width: 130px;
+    height: 55px;
+    margin: 0 10px;
+    border-radius: 50px;
+    border: 5px solid #EFE7DD;
+    font-family: 'reco',sans-serif;
+    font-size: 16px;
+    color: #A19890;
+    text-align: center;
+    line-height: 45px;
+}
