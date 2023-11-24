@@ -5,13 +5,12 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <%@ include file="/WEB-INF/views/library/common/header.jsp" %>
+    <title>도서 관리 시스템</title>
 </head>
 <body>
-<div id="mainBody">
-    <%@ include file="/WEB-INF/views/library/book/bookSearch.jsp" %>
-    <%@ include file="/WEB-INF/views/library/book/bookList.jsp" %>
-
-    <div>hello world</div>
+<div id="pageBody">
+        <%@ include file="/WEB-INF/views/library/book/bookSearch.jsp" %>
+        <%@ include file="/WEB-INF/views/library/book/bookList.jsp" %>
 </div>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>

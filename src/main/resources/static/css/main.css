@@ -1,0 +1,65 @@
+/*bookSearch, bookList 스타지*/
+/*폰트*/
+@font-face {
+    font-family: 'reco';
+    src: url('font/reco.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'skybori';
+    src: url('font/skybori.ttf') format('truetype');
+}
+/*폰트 끝*/
+/*검색 박스 디자인*/
+.searchBox{
+    width: 800px;
+    height:80px;
+    background-color: #EFE7DD;
+    border-radius: 50px;
+    margin: 30px auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.searchBox2{
+    position: relative;
+    width: 650px;
+    height:70px;
+    background-color: #ffffff;
+    border-radius: 50px 0 0 50px;
+    display: flex;
+    margin-left: 5px;
+    margin-right: auto;
+}
+
+/*검색 창*/
+input{
+    width: 650px;
+    height:70px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    display: flex;
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 30px;
+    font-size: 28px;
+    font-family: 'skybori', sans-serif;
+    color: #A19890;
+    line-height: 70px;
+}
+/*검색 버튼*/
+.searchBtn{
+    color: white;
+    font-family: 'reco', sans-serif;
+    font-size: 32px;
+    border: none;
+    display: flex;
+    margin-right: 40px;
+    background-color: #EFE7DD;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    cursor: pointer;
+}

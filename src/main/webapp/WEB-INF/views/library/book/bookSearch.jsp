@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: yeeun
-  Date: 2023/11/24
-  Time: 7:34 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-</head>
-<body>
-    <div>도서 검색</div>
-</body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+    </head>
+    <body>
+        <div class="pageTitle">도서 검색</div>
+        <div class="searchBox">
+            <div class="searchBox2">
+            <input type="text" placeholder="도서명을 입력해주세요.">
+        </div>
+            <button class="searchBtn">검색</button>
+        </div>
+    </body>
 </html>

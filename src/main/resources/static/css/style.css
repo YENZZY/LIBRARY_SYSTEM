@@ -1,9 +1,16 @@
-/* style.css */
+/* 페이지 스타일 */
 
+/*폰트*/
 @font-face {
     font-family: 'reco';
     src: url('font/reco.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'skybori';
+    src: url('font/skybori.ttf') format('truetype');
+}
+/*폰트 끝*/
 
 header {
     background-color: #EFE7DD;
@@ -41,12 +48,18 @@ body {
     flex-direction: column;
 }
 
-#mainBody {
+/*페이지 틀*/
+#pageBody {
     flex: 1;
-    padding: 20px;
+    padding: 50px 100px;
     min-height: calc(100vh - 300px); /* 헤더와 푸터의 높이를 제외한 나머지 공간을 차지하도록 설정 */
     display: flex;
     flex-direction: column;
 }
 
+/*페이지 별 제목*/
+.pageTitle {
+    font-family: 'reco', sans-serif;
+    font-size: 32px;
+}
 
