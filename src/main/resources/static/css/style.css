@@ -12,20 +12,53 @@
 }
 /*폰트 끝*/
 
+/*header*/
 header {
     background-color: #EFE7DD;
     width: 1200px;
     height: 150px;
-    font-size: 56px;
+    font-size: 20px;
     font-family: 'reco', sans-serif;
-    color: white;
     text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
+.logo {
+    font-size: 56px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.nickname {
+    font-size: 28px;
+    display: flex;
+    justify-content: right;
+    margin-left: 50px;
+}
+header span {
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+}
+header button {
+    color: #BBB2A9;
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-family: 'reco', sans-serif;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: right;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/*footer*/
 footer {
     background-color: #EFE7DD;
     width: 1200px;

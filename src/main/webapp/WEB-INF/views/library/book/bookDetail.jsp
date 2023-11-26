@@ -69,7 +69,7 @@
     <div class="btnBox">
         <button class="detailBtn" onclick="/main">목록</button>
         <div>
-            <button class="detailBtn" onclick="/bookEdit">수정</button>
+            <button class="detailBtn" onclick="window.location.href='/book/bookEdit'">수정</button>
             <button class="detailBtn" onclick="">대출하기</button>
         </div>
     </div>

@@ -7,13 +7,8 @@
         <title>도서 관리 시스템</title>
     </head>
     <body>
-        <script>
-            function back() {
-                window.history.back();
-            }
-        </script>
         <div id="pageBody">
-            <div class="pageTitle">도서 등록</div>
+            <div class="pageTitle">도서 수정</div>
             <div class="detailBox">
                 <div class="detailBox2"></div>
                 <div class="DetailForm">
@@ -38,8 +33,8 @@
                 </div>
             </div>
             <div class="btnBox2">
-                <button class="detailBtn2" type="submit">수정</button>
-                <button class="detailBtn2" type="button" onclick="back()">취소</button>
+                <button class="detailBtn2" type="submit">완료</button>
+                <button class="detailBtn2" type="button" onclick="window.history.back()">취소</button>
             </div>
         </div>
         <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
