@@ -112,6 +112,8 @@ input {
 }
 
 .listTextBox li {
+    width: 130px;
+    font-size: 20px;
     border-right: 1px solid #EFE7DD;
     padding: 20px 30px; /* 상하 여백 추가 */
     text-align: center;
@@ -122,8 +124,4 @@ input {
 
 .listTextBox li:last-child {
     border-right: none;
-}
-.listItem{
-    width: 130px;
-    font-size: 20px;
 }
