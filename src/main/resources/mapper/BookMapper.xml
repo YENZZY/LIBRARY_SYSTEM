@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.library_system.dao.BookDAO">
-<select id="bookListAll" resultType="com.project.library_system.dto.BookDTO">
- SELECT * FROM BOOK
-</select>
+    <select id="bookListAll" resultType="com.project.library_system.dto.BookDTO">
+     SELECT * FROM BOOK
+    </select>
+    <select id="searchBooks" resultType="com.project.library_system.dto.BookDTO">
+     SELECT * FROM BOOK WHERE bookTitle LIKE CONCAT('%', #{bookTitle}, '%')
+        OR author LIKE CONCAT('%', #{author}, '%')
+        OR genre LIKE CONCAT('%', #{genre}, '%')
+        OR publisher LIKE CONCAT('%', #{publisher}, '%')
+        OR publishedYear LIKE CONCAT('%', #{publishedYear}, '%')
+        OR status LIKE CONCAT('%', #{status}, '%')
+    </select>
 </mapper>

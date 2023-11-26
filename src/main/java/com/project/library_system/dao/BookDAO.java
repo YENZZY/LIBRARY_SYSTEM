@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface BookDAO {
-    // 도서 목록 페이지
+    // 도서 목록
     List<BookDTO> bookListAll();
+    // 도서 검색
+    List<BookDTO> searchBooks(String keyword);
 }

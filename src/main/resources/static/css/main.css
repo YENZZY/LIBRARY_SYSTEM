@@ -24,48 +24,49 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-}
-
-.searchBox2 {
-    position: relative;
-    width: 650px;
-    height: 70px;
-    background-color: #ffffff;
-    border-radius: 50px 0 0 50px;
-    display: flex;
-    margin-left: 5px;
-    margin-right: auto;
+    padding: 0;
 }
 
 /*검색 창*/
 input {
     width: 650px;
-    height: 70px;
+    height: 60px;
     background-color: #ffffff;
     border: none;
     border-radius: 50px 0 0 50px;
-    display: flex;
-    margin-left: 0;
-    margin-right: auto;
-    padding-left: 30px;
+    display: inline-block;
     font-size: 28px;
     font-family: 'skybori', sans-serif;
     color: #A19890;
-    line-height: 70px;
+    line-height: 60px;
+    justify-content: right;
+    float: left;
+    margin: 0;
+    padding-left: 30px;
+
 }
 
+form {
+    margin: auto 0 auto 10px;
+    display: flex;
+    justify-content: left;
+    height: 60px;
+    width: 800px;
+}
 /*검색 버튼*/
-.searchBtn {
+#searchBtn {
+    margin:0 auto;
+    width: auto;
+    display: flex;
+    justify-content: right;
     color: white;
     font-family: 'reco', sans-serif;
     font-size: 32px;
     border: none;
-    display: flex;
-    margin-right: 40px;
-    background-color: #EFE7DD;
+    background: none;
     text-align: center;
-    height: 80px;
-    line-height: 80px;
+    height: 70px;
+    line-height: 70px;
     cursor: pointer;
 }
 
@@ -132,4 +133,3 @@ input {
 .listTextBox li:last-child {
     border-right: none;
 }
-

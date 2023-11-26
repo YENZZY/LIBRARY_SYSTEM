@@ -29,14 +29,12 @@ public class BookController {
         model.addAttribute("bookListAll", bookListAll);
         return "/main";
     }
-    //도서 목록
-//    @GetMapping("/bookList")
-//    public String bookListAll(Model model) {
-//        List<BookDTO> bookListAll = service.bookListAll();
-//        model.addAttribute("bookListAll", bookListAll);
-//        return "/book/List";
-//    }
-
+    @GetMapping("/search")
+    public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
+        List<BookDTO> searchResults = service.searchBooks(keyword);
+        model.addAttribute("bookListAll", searchResults);
+        return "redirect:/main"; // Redirect to the bookList page
+    }
     // 도서 상세 정보
 
     @GetMapping("/bookDetail")

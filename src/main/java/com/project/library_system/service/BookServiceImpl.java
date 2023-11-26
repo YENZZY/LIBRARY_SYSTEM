@@ -17,4 +17,9 @@ public class BookServiceImpl implements BookService {
     public List<BookDTO> bookListAll() {
         return dao.bookListAll();
     }
+
+    @Override
+    public List<BookDTO> searchBooks(String keyword){
+        return dao.searchBooks(keyword);
+    }
 }
