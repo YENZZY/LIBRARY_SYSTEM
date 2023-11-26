@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -18,63 +19,17 @@
             <li>도서상태</li>
         </ul>
     </div>
-    <ul class="listTextBox" style="margin-top: 70px">
-        <li>1</li>
-        <li>토지</li>
-        <li>박경리</li>
-        <li>소설</li>
-        <li>출판사A</li>
-        <li>2000</li>
-        <li>대출 가능</li>
-    </ul>
-<%--    삭제할 것들--%>
-    <ul class="listTextBox">
-        <li>2</li>
-        <li>해리포터</li>
-        <li>J.K.롤링</li>
-        <li>판타지</li>
-        <li>출판사B</li>
-        <li>1998</li>
-        <li>대출 중</li>
-    </ul>
-    <ul class="listTextBox">
-        <li>2</li>
-        <li>해리포터</li>
-        <li>J.K.롤링</li>
-        <li>판타지</li>
-        <li>출판사B</li>
-        <li>1998</li>
-        <li>대출 중</li>
-    </ul>
-    <ul class="listTextBox">
-        <li>2</li>
-        <li>해리포터</li>
-        <li>J.K.롤링</li>
-        <li>판타지</li>
-        <li>출판사B</li>
-        <li>1998</li>
-        <li>대출 중</li>
-    </ul>
-    <ul class="listTextBox">
-        <li>2</li>
-        <li>해리포터</li>
-        <li>J.K.롤링</li>
-        <li>판타지</li>
-        <li>출판사B</li>
-        <li>1998</li>
-        <li>대출 중</li>
-    </ul>
-    <ul class="listTextBox">
-        <li>2</li>
-        <li>해리포터</li>
-        <li>J.K.롤링</li>
-        <li>판타지</li>
-        <li>출판사B</li>
-        <li>1998</li>
-        <li>대출 중</li>
-    </ul>
-<%--    삭제할 것들--%>
+    <c:forEach var="book" items="${bookListAll}">
+        <ul class="listTextBox" style="margin-top: 70px">
+            <li>${book.bookNum}</li>
+            <li>${book.bookTitle}</li>
+            <li>${book.author}</li>
+            <li>${book.genre}</li>
+            <li>${book.publisher}</li>
+            <li>${book.publishedYear}</li>
+            <li>${book.status}</li>
+        </ul>
+    </c:forEach>
 </div>
-<div></div>
 </body>
 </html>

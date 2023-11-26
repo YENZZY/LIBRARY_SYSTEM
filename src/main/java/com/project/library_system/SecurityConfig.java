@@ -1,28 +1,39 @@
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.web.SecurityFilterChain;
-
+//package com.project.library_system;
+//
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+//import org.springframework.security.web.SecurityFilterChain;
+//
 //@Configuration
 //@EnableWebSecurity
 //public class SecurityConfig {
+//
 //    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(AbstractHttpConfigurer::disable);
-//        http
-//                .authorizeHttpRequests(
-//                        authorize -> authorize
-//                                .requestMatchers("/main").permitAll()
-//                                .requestMatchers("/login").permitAll()
-//                                .requestMatchers("/signUp").permitAll()
-//                                .requestMatchers("/book/**").permitAll()
-//                                .anyRequest().authenticated()
-//
-//                );
-//
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.authorizeRequests().requestMatchers("/**").hasRole("USER").and().formLogin()
+//                .usernameParameter("username") // default is username
+//                .passwordParameter("password") // default is password
+//                .loginPage("/login") // default is /login with an HTTP get
+//                .failureUrl("/login?error") // default is /login?error
+//                .loginProcessingUrl("/login"); // default is /login
+//        // with an HTTP
+//        // post
 //        return http.build();
+//    }
+//
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user = User.withDefaultPasswordEncoder()
+//                .username("user")
+//                .password("password")
+//                .roles("회원","관리자")
+//                .build();
+//        return new InMemoryUserDetailsManager(user);
 //    }
 //}

@@ -111,6 +111,10 @@ input {
     text-align: center;
 }
 
+.listTextBox:nth-child(2){
+    margin-top: 70px;
+}
+
 .listTextBox li {
     width: 130px;
     font-size: 20px;
@@ -120,8 +124,12 @@ input {
     align-items: center;
     justify-content: center;
     line-height: 1.5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .listTextBox li:last-child {
     border-right: none;
 }
+

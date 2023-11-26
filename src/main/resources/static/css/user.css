@@ -69,6 +69,8 @@
     font-family: 'skybori', sans-serif;
     margin: 10px 60px 0 0;
     float: right;
+    color: #A19890;
+    padding-left: 20px;
 }
 
 .btnstyle {
@@ -91,6 +93,7 @@
     color: #A19890;
     text-align: center;
     line-height: 45px;
+    cursor: pointer;
 }
 
 /*signUp 스타일*/

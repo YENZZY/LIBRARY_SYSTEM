@@ -38,7 +38,7 @@
     </div>
     <div class="btnstyle">
         <button type="submit" style="background-color: #FFFBF5">완료</button>
-        <button type="button" onclick="/login" style="background-color: #EFE7DD">취소</button>
+        <button type="button" onclick="window.location.href='/login'" style="background-color: #EFE7DD">취소</button>
     </div>
 </div>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>

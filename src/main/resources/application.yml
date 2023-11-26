@@ -4,11 +4,10 @@ spring:
     url: jdbc:mysql://localhost:3306/library?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: user
     password: 12341234
-
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
+  mvc:
+    view:
+      prefix: /WEB-INF/views/library/
+      suffix: .jsp
 
   devtools:
     livereload:
@@ -16,24 +15,17 @@ spring:
     restart:
       enabled: false
 
-#  thymeleaf:
-#    cache: false
-#    enabled: true
-#    prefix: classpath:/templates/html/
-#    suffix: .html
-#    encoding: UTF-8
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
-  mybatis:
-    mapper-locations: classpath:mapper/**/*.xml
-    configuration:
-      map-underscore-to-camel-case: true
-
-  server:
+server:
     servlet:
       encoding:
         force-response: true
 
-  mvc:
-    view:
-      prefix: /WEB-INF/views/library/
-      suffix: .jsp
+http:
+  encoding:
+    force: true
+    charset: UTF-8
