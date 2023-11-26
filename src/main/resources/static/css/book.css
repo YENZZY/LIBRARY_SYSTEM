@@ -12,7 +12,7 @@
 
 /*폰트 끝*/
 /*bookDetail 디자인*/
-.detailBox{
+.detailBox {
     position: relative;
     width: 910px;
     height: auto;
@@ -21,7 +21,7 @@
     margin: 30px auto;
 }
 
-.detailBox2{
+.detailBox2 {
     position: absolute;
     width: 310px;
     height: 100%;
@@ -42,15 +42,15 @@
     line-height: 80px;
 }
 
-.detailForm:last-child{
+.detailForm:last-child {
     margin-bottom: 20px;
 }
 
-.detailForm span{
+.detailForm span {
     width: 310px;
     height: 80px;
     text-align: center;
-    margin:0;
+    margin: 0;
     padding: 0;
     line-height: 80px;
     font-family: 'skybori', sans-serif;
@@ -96,7 +96,7 @@
     height: 50px;
     background-color: #EFE7DD;
     font-size: 20px;
-    font-family: 'reco',sans-serif;
+    font-family: 'reco', sans-serif;
     color: #A19890;
     border-radius: 50px;
     border: 5px solid #EFE7DD;
@@ -119,8 +119,9 @@
     font-family: 'skybori', sans-serif;
     color: #A19890;
 }
+
 /*btn*/
-.btnBox2 {
+#btnBox2 {
     width: 910px;
     height: auto;
     margin: 0 auto;
@@ -135,7 +136,7 @@
     height: 50px;
     background-color: #EFE7DD;
     font-size: 20px;
-    font-family: 'reco',sans-serif;
+    font-family: 'reco', sans-serif;
     color: #A19890;
     border-radius: 50px;
     border: 5px solid #EFE7DD;

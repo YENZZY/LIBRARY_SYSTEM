@@ -32,11 +32,25 @@
             <input class="detailFormBox" placeholder="출판연도를 입력해주세요."/>
         </div>
     </div>
-    <div class="btnBox2">
+    <form id="btnBox2" onsubmit="return registSubmit()">
         <button class="detailBtn2" type="submit">완료</button>
         <button class="detailBtn2" type="button" onclick="main()">취소</button>
-    </div>
+    </form>
 </div>
+<script>
+    function registSubmit() {
+        var isConfirmed = confirm("도서 등록을 하시겠습니까?");
+
+        if (isConfirmed) {
+            alert("도서 등록이 완료되었습니다.");
+            return true;
+        } else {
+          //취소
+          alert("도서 등록이 취소되었습니다.");
+          return false;
+        }
+    }
+</script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
 </html>

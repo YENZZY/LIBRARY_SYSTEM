@@ -68,12 +68,39 @@
     </div>
     <div class="btnBox">
         <button class="detailBtn" onclick="/main">목록</button>
-        <div>
+        <form>
             <button class="detailBtn" onclick="window.location.href='/book/bookEdit'">수정</button>
-            <button class="detailBtn" onclick="">대출하기</button>
-        </div>
+            <button class="detailBtn" onsubmit="borrowSubmit()">대출하기</button>
+        </form>
     </div>
 </div>
+<script>
+    function borrowSubmit() {
+        var isConfirmed = confirm("도서 대출을 하시겠습니까?");
+
+        if (isConfirmed) {
+            alert("도서 대출이 완료되었습니다.");
+            return true;
+        } else {
+            //취소
+            alert("도서 대출이 취소되었습니다.");
+            return false;
+        }
+    }
+    //반납하기
+    function returnSubmit() {
+        var isConfirmed = confirm("도서 반납을 하시겠습니까?");
+
+        if (isConfirmed) {
+            alert("도서 반납이 완료되었습니다.");
+            return true;
+        } else {
+            //취소
+            alert("도서 반납이 취소되었습니다.");
+            return false;
+        }
+    }
+</script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
 </html>
