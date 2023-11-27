@@ -13,4 +13,7 @@ public interface BookService {
 
     // 도서 상세 정보
     BookDTO detailBook(Integer bookNum);
+
+    // 도서 등록
+    void bookRegistOk(BookDTO bookDTO);
 }

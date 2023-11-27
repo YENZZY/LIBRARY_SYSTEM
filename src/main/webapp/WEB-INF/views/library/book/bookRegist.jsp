@@ -9,45 +9,41 @@
 <body>
 <div id="pageBody">
     <div class="pageTitle">도서 등록</div>
-    <div class="detailBox">
-        <div class="detailBox2"></div>
-        <div class="DetailForm">
-            <span>도서명</span>
-            <input class="detailFormBox" placeholder="도서명을 입력해주세요."/>
+    <form action="/library/book/bookRegistOk" method="post" id="bookRegistForm">
+        <div class="detailBox">
+            <div class="detailBox2"></div>
+            <div class="DetailForm">
+                <span>도서명</span>
+                <input class="detailFormBox" name="bookTitle" placeholder="도서명을 입력해주세요. (필수)"/>
+            </div>
+            <div class="DetailForm">
+                <span>저자</span>
+                <input class="detailFormBox" name="author" placeholder="저자를 입력해주세요."/>
+            </div>
+            <div class="DetailForm">
+                <span>장르</span>
+                <input class="detailFormBox" name="genre" placeholder="장르를 입력해주세요."/>
+            </div>
+            <div class="DetailForm">
+                <span>출판사</span>
+                <input class="detailFormBox" name="publisher" placeholder="출판사를 입력해주세요."/>
+            </div>
+            <div class="DetailForm">
+                <span>출판연도</span>
+                <input class="detailFormBox" name="publishedYear" placeholder="출판연도를 입력해주세요. (ex.1998)"/>
+            </div>
         </div>
-        <div class="DetailForm">
-            <span>저자</span>
-            <input class="detailFormBox" placeholder="저자를 입력해주세요."/>
+        <div class="btnBox2">
+            <button class="detailBtn2" type="button" onclick="submitForm()">완료</button>
+            <button class="detailBtn2" type="button" onclick="main()">취소</button>
         </div>
-        <div class="DetailForm">
-            <span>장르</span>
-            <input class="detailFormBox" placeholder="장르를 입력해주세요."/>
-        </div>
-        <div class="DetailForm">
-            <span>출판사</span>
-            <input class="detailFormBox" placeholder="출판사를 입력해주세요."/>
-        </div>
-        <div class="DetailForm">
-            <span>출판연도</span>
-            <input class="detailFormBox" placeholder="출판연도를 입력해주세요."/>
-        </div>
-    </div>
-    <form id="btnBox2" onsubmit="return registSubmit()">
-        <button class="detailBtn2" type="submit">완료</button>
-        <button class="detailBtn2" type="button" onclick="main()">취소</button>
     </form>
 </div>
 <script>
-    function registSubmit() {
+    function submitForm() {
         var isConfirmed = confirm("도서 등록을 하시겠습니까?");
-
         if (isConfirmed) {
-            alert("도서 등록이 완료되었습니다.");
-            return true;
-        } else {
-          //취소
-          alert("도서 등록이 취소되었습니다.");
-          return false;
+            document.getElementById("bookRegistForm").submit();
         }
     }
 </script>

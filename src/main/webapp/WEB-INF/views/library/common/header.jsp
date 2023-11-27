@@ -10,7 +10,7 @@
     <span id="signUpLink" onclick="window.location.href='/library/signUp'">회원 등록</span>
     <span class="logo" onclick="main()">도서 관리 시스템</span>
     <span class="nickname">관리자</span>
-    <button type="submit" value="logout">로그아웃</button>
+    <button type="submit" value="/logout">로그아웃</button>
 </header>
 <script>
     <%--메인화면 이동--%>

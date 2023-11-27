@@ -114,6 +114,7 @@
 
 .btnBox2{
     display: flex;
+    justify-content: right;
 }
 
     /*bookRegist & bookEdit*/
@@ -160,4 +161,8 @@
 }
 .bookNo {
     color: #FF6363;
+}
+
+#bookRegistForm{
+    margin: 0;
 }

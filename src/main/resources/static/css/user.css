@@ -190,3 +190,8 @@ label input {
     text-align: center;
     vertical-align: middle;
 }
+
+form{
+    margin: 0;
+    padding: 0;
+}

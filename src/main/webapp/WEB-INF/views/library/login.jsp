@@ -8,25 +8,30 @@
 </head>
 <body>
 <div id="pageBody">
+    <form method="post" action="/library/loginOk">
     <div class="loginBox">
         <div class="loginBox2">
             로그인
         </div>
-        <form onsubmit="return loginSubmit()" method="post" action="/loginOk">
             <div class="loginForm">
                 <li>아이디
-                    <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요.">
+                    <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요."/>
                 </li>
                 <li>비밀번호
-                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요.">
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."/>
                 </li>
             </div>
     </div>
     <div class="btnstyle">
-        <button type="button" onclick="window.location.href='/signUp'" style="background-color: #FFF">회원가입</button>
-        <button type="submit" style="background-color: #EFE7DD">로그인</button>
+        <button type="button" onclick="window.location.href='/library/signUp'" style="background-color: #FFF">회원가입</button>
+        <button type="submit"  onclick="loginSubmit()" style="background-color: #EFE7DD">로그인</button>
     </div>
+        <c:if test="${not empty error}">
+            <p>${error}</p>
+        </c:if>
     </form>
+</div>
+
     <script>
         // 로그인 팝업
         function loginSubmit() {

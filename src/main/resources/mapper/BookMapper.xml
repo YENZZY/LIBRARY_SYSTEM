@@ -13,4 +13,9 @@
     <select id="detailBook" resultType="com.project.library_system.dto.BookDTO">
         SELECT * FROM BOOK LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum WHERE BOOK.bookNum = #{bookNum}
     </select>
+    <!-- 도서 등록 -->
+    <insert id="bookRegistOk" parameterType="com.project.library_system.dto.BookDTO">
+        INSERT INTO book ( bookTitle, author, genre, publisher, publishedYear)
+        VALUES ( #{bookTitle}, #{author}, #{genre}, #{publisher}, #{publishedYear})
+    </insert>
 </mapper>

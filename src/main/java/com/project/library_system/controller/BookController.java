@@ -43,19 +43,23 @@ public class BookController {
     public String detailBook(@PathVariable Integer bookNum, Model model) {
         BookDTO detailBook = service.detailBook(bookNum);
         model.addAttribute("bookDetail", detailBook);
+
         return "library/book/bookDetail";
     }
 
     // 도서 등록
     @GetMapping("/book/bookRegist")
     public String bookRegist() {
+
         return "library/book/bookRegist";
     }
 
     // 도서 등록 처리
     // @ModelAttribute : 컨트롤러 메서드에 파라미터로 전달되는 객체를 모델에 자동으로 추가 / HTML 폼에서 입력된 데이터를 받아와서 객체로 변환
-    @PostMapping("/book/bookRegist")
-    public String bookRegistOk(@ModelAttribute BookDTO bookDTO){
+    @PostMapping("/book/bookRegistOk")
+    public String bookRegistOk(@ModelAttribute BookDTO bookDTO, Model model){
+        service.bookRegistOk(bookDTO);
+        model.addAttribute("bookRegistOk", bookDTO);
 
         return "redirect:/library/main";
     }

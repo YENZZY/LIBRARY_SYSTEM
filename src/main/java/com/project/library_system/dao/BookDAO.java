@@ -17,4 +17,8 @@ public interface BookDAO {
     // 도서 상세 정보
     BookDTO detailBook(Integer bookNum);
 
+    // 도서 등록
+    // MyBatis의 INSERT 쿼리를 수행하는 메서드에서는 일반적으로 반환 타입이 void 또는 int
+    void bookRegistOk(BookDTO bookDTO);
+
 }
