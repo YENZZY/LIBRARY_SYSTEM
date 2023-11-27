@@ -8,16 +8,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDAO userDAO;
+    private final UserDAO dao;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     public UserServiceImpl(UserDAO userDAO, BCryptPasswordEncoder passwordEncoder) {
-        this.userDAO = userDAO;
+        this.dao = userDAO;
         this.passwordEncoder = passwordEncoder;
     }
     @Override
     public UserDTO loginOk(UserDTO dto) throws Exception {
-        return userDAO.loginOk(dto);
+        return dao.loginOk(dto);
+    }
+
+    @Override
+    public void logout(String userId){
+        dao.logout(userId);
+    }
+
+    @Override
+    public UserDTO headerInfo(String userId) {
+        return dao.headerInfo(userId);
     }
 }

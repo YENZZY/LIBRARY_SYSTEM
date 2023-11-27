@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/library")
@@ -51,22 +52,28 @@ public class UserController {
         }
     }
 
-
-
-
-
-    //로그아웃
+    // 로그아웃
     @PostMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        request.getSession().invalidate();
-
-        return "redirect:/library/login";
+    public String logout(HttpSession session) {
+        // 세션 무효화
+        session.invalidate();
+        return "redirect:/library/login?logout";
     }
+
+
 
 
     // 회원가입
     @GetMapping("/signUp")
     public String signUp(){
         return "library/signUp";
+    }
+
+    // 헤더 정보
+    @GetMapping("/headerInfo")
+    @ResponseBody
+    public UserDTO headerInfo(HttpSession session) {
+        UserDTO user = (UserDTO) session.getAttribute("login");
+        return user;
     }
 }

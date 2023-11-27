@@ -4,4 +4,12 @@
     <select id="loginOk" resultType="com.project.library_system.dto.UserDTO">
         SELECT * FROM USER WHERE userId = #{userId} AND password = #{password}
     </select>
+    <!-- 로그아웃 -->
+    <update id="logout">
+        UPDATE USER WHERE userId = #{userId}
+    </update>
+    <!-- 헤더 정보 조회 -->
+    <select id="getHeaderInfo" parameterType="string" resultType="com.project.library_system.dto.UserDTO">
+        SELECT userId, admin FROM USER WHERE userId = #{userId}
+    </select>
 </mapper>

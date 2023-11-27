@@ -6,5 +6,12 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface UserDAO {
+    // 로그인
     UserDTO loginOk(UserDTO dto) throws Exception;
+
+    // 로그아웃
+    void logout(String userId);
+
+    // 헤더정보
+    UserDTO headerInfo(String userId);
 }

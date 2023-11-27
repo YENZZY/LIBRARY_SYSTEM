@@ -26,6 +26,7 @@ header {
 }
 
 .logo {
+    min-width: 450px;
     font-size: 56px;
     color: white;
     display: flex;
@@ -41,8 +42,9 @@ header {
 }
 header span {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     padding-left: 20px;
+    margin : 0;
 }
 header button {
     color: #BBB2A9;
