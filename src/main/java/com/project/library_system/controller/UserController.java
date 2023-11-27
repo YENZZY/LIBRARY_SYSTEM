@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/library")
 public class UserController {
 
    @Autowired
@@ -22,7 +24,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(){
 
-        return "login";
+        return "library/login";
     }
 
     @PostMapping("/loginOk")
@@ -31,10 +33,10 @@ public class UserController {
         if (loggedInUser != null) {
             // 로그인 성공 시 세션에 사용자 정보 저장
             session.setAttribute("login", loggedInUser);
-            return "redirect:/main";
+            return "redirect:library/main";
         } else {
 
-            return "redirect:/login?error";
+            return "redirect:library/login?error";
         }
     }
 

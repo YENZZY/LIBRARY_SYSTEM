@@ -43,6 +43,7 @@ input {
     float: left;
     margin: 0;
     padding-left: 30px;
+    margin-left: 5px;
 
 }
 
@@ -56,9 +57,9 @@ form {
 /*검색 버튼*/
 #searchBtn {
     margin:0 auto;
-    width: auto;
+    width: 150px;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     color: white;
     font-family: 'reco', sans-serif;
     font-size: 32px;
@@ -70,13 +71,28 @@ form {
     cursor: pointer;
 }
 
+/*검색어*/
+.searchWord {
+    font-size: 16px;
+    font-family: 'reco',sans-serif;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    justify-content: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    margin-left: 750px;
+    margin-bottom: 0;
+}
+
 /*bookSearch 끝*/
 /*bookList*/
 /*도서 목록 디자인 박스*/
 .listBox {
     position: relative;
     width: 910px;
-    min-height: 200px;
+    min-height: 150px;
     height: auto;
     border-radius: 50px;
     border: 5px solid #EFE7DD;
@@ -110,6 +126,11 @@ form {
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    cursor: pointer;
+}
+
+.listTextBox:first-child{
+    cursor:default;
 }
 
 .listTextBox:nth-child(2){
@@ -128,8 +149,16 @@ form {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
 }
 
 .listTextBox li:last-child {
     border-right: none;
+}
+
+.bookOk {
+    color: #439AFF;
+}
+.bookNo {
+    color: #FF6363;
 }

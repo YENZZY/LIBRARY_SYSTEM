@@ -13,28 +13,28 @@
         <div class="detailBox2"></div>
         <div class="DetailForm">
             <span>도서명</span>
-            <input class="detailFormBox" placeholder="도서명을 입력해주세요."/>
+            <input class="detailFormBox" placeholder="도서명을 입력해주세요." value="${Editbook.bookTitle}"/>
         </div>
         <div class="DetailForm">
             <span>저자</span>
-            <input class="detailFormBox" placeholder="저자를 입력해주세요."/>
+            <input class="detailFormBox" placeholder="저자를 입력해주세요." value="${Editbook.author}"/>
         </div>
         <div class="DetailForm">
             <span>장르</span>
-            <input class="detailFormBox" placeholder="장르를 입력해주세요."/>
+            <input class="detailFormBox" placeholder="장르를 입력해주세요." value="${Editbook.genre}"/>
         </div>
         <div class="DetailForm">
             <span>출판사</span>
-            <input class="detailFormBox" placeholder="출판사를 입력해주세요."/>
+            <input class="detailFormBox" placeholder="출판사를 입력해주세요." value="${Editbook.publisher}"/>
         </div>
         <div class="DetailForm">
             <span>출판연도</span>
-            <input class="detailFormBox" placeholder="출판연도를 입력해주세요."/>
+            <input class="detailFormBox" placeholder="출판연도를 입력해주세요." value="${Editbook.publishedYear}"/>
         </div>
     </div>
     <form id="btnBox2" onsubmit="editSubmit()">
         <button class="detailBtn2" type="submit">완료</button>
-        <button class="detailBtn2" type="button" onclick="window.history.back()">취소</button>
+        <button class="detailBtn2" type="button" onclick="toBookDetail(${Editbook.bookNum})">취소</button>
     </form>
 </div>
 <script>

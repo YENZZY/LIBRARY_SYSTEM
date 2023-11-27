@@ -6,7 +6,7 @@ spring:
     password: 12341234
   mvc:
     view:
-      prefix: /WEB-INF/views/library/
+      prefix: /WEB-INF/views/
       suffix: .jsp
 
   devtools:

@@ -12,7 +12,10 @@
 <body>
 <div id="pageBody">
     <%@ include file="/WEB-INF/views/library/book/bookSearch.jsp" %>
-    <div class="pageTitle">도서 목록</div>
+    <div class="pageTitle" onclick="main()" style="cursor:pointer;">도서 목록</div>
+    <c:if test="${not empty searchKeyword}">
+        <p class="searchWord"> 검색어 : ${searchKeyword} </p>
+    </c:if>
     <div class="listBox">
         <div class="listBox2">
             <ul class="listTextBox">
@@ -25,19 +28,31 @@
                 <li>도서상태</li>
             </ul>
         </div>
-        <c:forEach var="book" items="${bookListAll}">
-            <ul class="listTextBox">
-                <li>${book.bookNum}</li>
-                <li>${book.bookTitle}</li>
-                <li>${book.author}</li>
-                <li>${book.genre}</li>
-                <li>${book.publisher}</li>
-                <li>${book.publishedYear}</li>
-                <li>${book.status}</li>
-            </ul>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${not empty bookListAll}">
+                <c:forEach var="book" items="${bookListAll}">
+                    <ul class="listTextBox" onclick="toBookDetail(${book.bookNum})">
+                        <li>${book.bookNum}</li>
+                        <li>${book.bookTitle}</li>
+                        <li>${book.author}</li>
+                        <li>${book.genre}</li>
+                        <li>${book.publisher}</li>
+                        <li>${book.publishedYear}</li>
+                        <li class="${book.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${book.status}</li>
+                    </ul>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p>No results found.</p>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
+<script>
+    function toBookDetail(bookNum) {
+        window.location.href = '/library/book/bookDetail/' + bookNum;
+    }
+</script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
 </html>

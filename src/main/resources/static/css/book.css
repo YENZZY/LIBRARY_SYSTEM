@@ -16,6 +16,7 @@
     position: relative;
     width: 910px;
     height: auto;
+    max-height: 850px;
     border: 5px solid #EFE7DD;
     border-radius: 50px;
     margin: 30px auto;
@@ -111,7 +112,11 @@
     width: 120px;
 }
 
-/*bookRegist & bookEdit*/
+.btnBox2{
+    display: flex;
+}
+
+    /*bookRegist & bookEdit*/
 
 .detailForm input {
     text-align: center;
@@ -148,4 +153,11 @@
 
 .detailBtn2:first-child {
     background: none;
+}
+
+.bookOk {
+    color: #439AFF;
+}
+.bookNo {
+    color: #FF6363;
 }

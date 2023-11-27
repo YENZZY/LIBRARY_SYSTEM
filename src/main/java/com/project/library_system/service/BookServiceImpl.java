@@ -20,6 +20,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDTO> searchBooks(String keyword){
+
         return dao.searchBooks(keyword);
+    }
+
+    @Override
+    public BookDTO detailBook(Integer bookNum) {
+        return dao.detailBook(bookNum);
     }
 }

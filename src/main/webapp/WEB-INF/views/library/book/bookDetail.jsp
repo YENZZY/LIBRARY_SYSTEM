@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/book.css">
@@ -14,67 +15,73 @@
         <div class="DetailForm">
             <span>도서번호</span>
             <div class="detailFormBox">
-                <span>1</span>
+                <span>${bookDetail.bookNum}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>도서명</span>
             <div class="detailFormBox">
-                <span>헝거게임</span>
+                <span>${bookDetail.bookTitle}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>저자</span>
             <div class="detailFormBox">
-                <span>장꿈이</span>
+                <span>${bookDetail.author}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>장르</span>
             <div class="detailFormBox">
-                <span>판타지</span>
+                <span>${bookDetail.genre}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>출판사</span>
             <div class="detailFormBox">
-                <span>게임출판사</span>
+                <span>${bookDetail.publisher}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>출판연도</span>
             <div class="detailFormBox">
-                <span>2018</span>
+                <span>${bookDetail.publishedYear}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>도서상태</span>
             <div class="detailFormBox">
-                <span>대출가능</span>
+                <span class="${bookDetail.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${bookDetail.status}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>대출일</span>
             <div class="detailFormBox">
-                <span>2023-11-11</span>
+                <span>${bookDetail.borrowDate}</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>반납일</span>
             <div class="detailFormBox">
-                <span>2023-11-18</span>
+                <span>${bookDetail.returnDate}</span>
             </div>
         </div>
     </div>
     <div class="btnBox">
-        <button class="detailBtn" onclick="/main">목록</button>
-        <form>
-            <button class="detailBtn" onclick="window.location.href='/book/bookEdit'">수정</button>
-            <button class="detailBtn" onsubmit="borrowSubmit()">대출하기</button>
+        <button class="detailBtn" onclick="main()">목록</button>
+        <div class="btnBox2">
+        <button class="detailBtn" onclick="toBookEdit(${bookDetail.bookNum})">수정</button>
+        <form onsubmit="borrowSubmit()">
+            <button class="detailBtn">대출하기</button>
         </form>
+        </div>
     </div>
 </div>
 <script>
+    function toBookEdit() {
+        window.location.href="/library/book/bookEdit";
+    }
+
     function borrowSubmit() {
         var isConfirmed = confirm("도서 대출을 하시겠습니까?");
 

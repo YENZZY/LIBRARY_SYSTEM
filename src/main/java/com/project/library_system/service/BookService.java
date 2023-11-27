@@ -7,6 +7,10 @@ import java.util.List;
 public interface BookService {
     // 도서 목록
     List<BookDTO> bookListAll();
+
     // 도서 검색
     List<BookDTO> searchBooks(String keyword);
+
+    // 도서 상세 정보
+    BookDTO detailBook(Integer bookNum);
 }

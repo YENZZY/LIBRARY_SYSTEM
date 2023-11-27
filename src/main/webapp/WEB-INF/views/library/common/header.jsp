@@ -6,8 +6,8 @@
 <body>
 <header>
     <span>대출 이력 조회</span>
-    <span id="bookRegistLink" onclick="window.location.href='/book/bookRegist'">도서 등록</span>
-    <span id="signUpLink" onclick="window.location.href='/signUp'">회원 등록</span>
+    <span id="bookRegistLink" onclick="window.location.href='/library/book/bookRegist'">도서 등록</span>
+    <span id="signUpLink" onclick="window.location.href='/library/signUp'">회원 등록</span>
     <span class="logo" onclick="main()">도서 관리 시스템</span>
     <span class="nickname">관리자</span>
     <button type="submit" value="logout">로그아웃</button>
@@ -16,7 +16,7 @@
     <%--메인화면 이동--%>
 
     function main() {
-        window.location.href = "/main";
+        window.location.href = "/library/main";
     }
 
     function checkLoginStatus() {

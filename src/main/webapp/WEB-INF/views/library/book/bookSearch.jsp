@@ -7,10 +7,12 @@
 <body>
 <div class="pageTitle">도서 검색</div>
 <div class="searchBox">
-        <form action="/search" method="GET">
-            <input type="text" name="keyword" placeholder="도서명을 입력해주세요."/>
-            <button id="searchBtn" type="submit">검색</button>
+    <div class="searchBox2">
+        <form action="/library/book/search" method="GET">
+            <input type="text" name="keyword" placeholder="도서명을 입력해주세요.">
+            <input id="searchBtn" type="submit" value="검색"/>
         </form>
+    </div>
 </div>
 </body>
 </html>
