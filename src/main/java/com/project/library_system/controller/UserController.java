@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/library")
@@ -60,13 +60,29 @@ public class UserController {
         return "redirect:/library/login?logout";
     }
 
-
-
-
     // 회원가입
     @GetMapping("/signUp")
     public String signUp(){
         return "library/signUp";
+    }
+
+    // 회원가입 데이터 보네기
+    @PostMapping("/signUpOk")
+    public String signUpOk(@ModelAttribute UserDTO userDTO, Model model){
+        service.signUpOk(userDTO);
+        model.addAttribute("signUpOk",userDTO);
+
+        return "redirect:/library/login";
+    }
+
+    // 아이디 중복 확인
+    @PostMapping("/checkUserId")
+    @ResponseBody
+    public Map<String, Boolean> checkUserId(@RequestParam String userId) {
+        Map<String, Boolean> response = new HashMap<>();
+        boolean isUserIdAvailable = service.idOk(userId);
+        response.put("available", isUserIdAvailable);
+        return response;
     }
 
     // 헤더 정보
@@ -76,4 +92,6 @@ public class UserController {
         UserDTO user = (UserDTO) session.getAttribute("login");
         return user;
     }
+
+
 }

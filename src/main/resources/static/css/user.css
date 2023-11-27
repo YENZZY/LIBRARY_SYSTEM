@@ -134,14 +134,15 @@
 /* 회원가입 인풋 박스 디자인 */
 .signUpForm {
     width: 650px;
-    height: 100px;
+    height: auto;
+    min-height: 300px;
     display: flex;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 10px;
     padding-left: 0;
+    padding-top: 20px;
 }
 
 .signUpForm li {
@@ -151,12 +152,17 @@
     font-size: 24px;
     font-family: 'reco', sans-serif;
     text-align: center;
-    padding-top: 20px;
     line-height: 80px;
     margin-top: 10px;
     position: relative;
 }
 
+.signUpForm li input {
+    padding-left: 20px;
+    color: #A19890;
+}
+
+/*회원가입 입력 창*/
 .inputBox {
     width: 300px;
     height: 60px;
@@ -194,4 +200,30 @@ label input {
 form{
     margin: 0;
     padding: 0;
+}
+
+/*관리자 유무*/
+.radioBox{
+    cursor: pointer;
+}
+
+/*아이디 확인*/
+#idCheckResult {
+    width: auto;
+    height: auto;
+    max-height: 30px;
+    font-size: 20px;
+    font-family: 'skybori',sans-serif;
+    padding-left: 200px;
+    padding-top: 15px;
+}
+/*비밀번호 확인*/
+#passwordMsg {
+    width: auto;
+    height: auto;
+    max-height: 30px;
+    font-size: 20px;
+    font-family: 'skybori',sans-serif;
+    padding-left: 200px;
+    padding-top: 5px;
 }

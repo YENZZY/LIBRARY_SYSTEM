@@ -5,11 +5,19 @@
         SELECT * FROM USER WHERE userId = #{userId} AND password = #{password}
     </select>
     <!-- 로그아웃 -->
-    <update id="logout">
+    <update id="logout" parameterType="com.project.library_system.dto.UserDTO">
         UPDATE USER WHERE userId = #{userId}
     </update>
+    <!-- 회원가입 -->
+    <insert id="signUpOk" parameterType="com.project.library_system.dto.UserDTO">
+        INSERT INTO USER (userId, password, email,admin) VALUES (#{userId}, #{password}, #{email},#{admin})
+    </insert>
+    <!-- 아이디 중복 확인 -->
+    <select id="idOk" parameterType="string" resultType="java.lang.Boolean">
+        SELECT COUNT(*) FROM USER WHERE userId = #{userId}
+    </select>
     <!-- 헤더 정보 조회 -->
-    <select id="getHeaderInfo" parameterType="string" resultType="com.project.library_system.dto.UserDTO">
+    <select id="headerInfo" parameterType="string" resultType="com.project.library_system.dto.UserDTO">
         SELECT userId, admin FROM USER WHERE userId = #{userId}
     </select>
 </mapper>

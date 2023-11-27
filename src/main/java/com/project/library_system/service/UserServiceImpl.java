@@ -23,11 +23,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void logout(String userId){
+
         dao.logout(userId);
     }
+    @Override
+    public void signUpOk(UserDTO userDTO){
+        dao.signUpOk(userDTO);
+    }
 
+    @Override
+    public boolean idOk(String userId) {
+        return dao.idOk(userId);
+    }
     @Override
     public UserDTO headerInfo(String userId) {
         return dao.headerInfo(userId);
     }
+
 }

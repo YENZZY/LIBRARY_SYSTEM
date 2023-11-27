@@ -27,24 +27,30 @@ header {
 
 .logo {
     min-width: 450px;
+    height: 150px;
     font-size: 56px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    line-height: 150px;
 }
 .nickname {
     font-size: 28px;
     display: flex;
     justify-content: right;
     margin-left: 50px;
+    height: 150px;
+    line-height: 150px;
 }
 header span {
     display: flex;
     justify-content: center;
     padding-left: 20px;
     margin : 0;
+    height: 150px;
+    line-height: 150px;
 }
 header button {
     color: #BBB2A9;
@@ -58,6 +64,8 @@ header button {
     justify-content: right;
     margin-left: 10px;
     cursor: pointer;
+    height: 150px;
+    line-height: 150px;
 }
 
 /*footer*/
