@@ -16,7 +16,7 @@
     <%--    <c:if test="${not empty searchKeyword}">--%>
     <%--        <p class="searchWord"> 검색어 : ${searchKeyword} </p>--%>
     <%--    </c:if>--%>
-    <div class="pageTitle" onclick="main()" style="cursor:pointer;">도서 대출 조회</div>
+    <div class="pageTitle" style="cursor:pointer;">도서 대출 조회</div>
     <div class="listBox">
         <div class="listBox2">
             <ul class="listTextBox">
@@ -31,7 +31,9 @@
         </div>
         <c:choose>
             <c:when test="${not empty borrowList}">
-                <c:forEach var="book" items="${borrowList}">
+                <c:set var="currentPage" value="${not empty param.page ? param.page : 1}" />
+                <c:set var="itemsPerPage" value="10" />
+                <c:forEach var="book" items="${borrowList}" begin="${((currentPage - 1) * itemsPerPage)}" end="${(currentPage * itemsPerPage) - 1}">
                     <ul class="listTextBox" onclick="toBookDetail(${book.bookNum})">
                         <li>${book.bookNum}</li>
                         <li>${book.bookTitle}</li>
@@ -48,10 +50,42 @@
             </c:otherwise>
         </c:choose>
     </div>
+        <!-- 페이징 -->
+        <div class='pagebox'>
+            <c:if test="${not empty borrowList}">
+                <button onclick="handleClickPage(${currentPage - 1})" disabled="${currentPage == 1}">
+                    이전
+                </button>
+
+                <c:forEach var="index" begin="1" end="${(borrowList.size() / itemsPerPage) + 1}">
+                    <button
+                            onclick="handleClickPage(${index})"
+                            style="color: ${currentPage == index ? '#AB8B61' : '#EEE1D7'}"
+                    >
+                            ${index}
+                    </button>
+                </c:forEach>
+                <button onclick="handleClickPage(${currentPage + 1})" disabled="${currentPage == (bookListAll.size() / itemsPerPage)}">
+                    다음
+                </button>
+
+            </c:if>
+        </div>
 </div>
+
 <script>
+    // 상세페이지 이동
     function toBookDetail(bookNum) {
         window.location.href = '/library/book/bookDetail/' + bookNum;
+    }
+
+    // 페이지 클릭 처리
+    function handleClickPage(page) {
+        console.log('handleClickPage called with page:', page);
+        if (page > 0 && page <= ${(borrowList.size() / itemsPerPage) + 1}) {
+            console.log('Navigating to new page:', page);
+            location.href = '/library/borrow/borrowList?page=' + page;
+        }
     }
 </script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
