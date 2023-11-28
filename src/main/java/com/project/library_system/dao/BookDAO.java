@@ -31,4 +31,7 @@ public interface BookDAO {
 
     //도서 수정 데이터
     void bookEditOk(BookDTO bookDTO, RedirectAttributes redirectAttributes);
+
+    //도서 삭재
+    void bookDel(int bookNum);
 }

@@ -162,3 +162,13 @@ form {
 .bookNo {
     color: #FF6363;
 }
+
+/*대출 정보 조회*/
+#dateBox{
+    overflow: visible;
+    padding: 20px 13px;
+}
+
+#borrowId{
+ font-weight: bolder;
+}

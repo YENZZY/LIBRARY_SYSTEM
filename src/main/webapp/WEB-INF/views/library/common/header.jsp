@@ -8,7 +8,7 @@
 <body>
 <header>
     <div style="min-width: 350px; display: flex; justify-content: space-between; float: left;">
-        <span id="borrowListLink">대출 이력 조회</span>
+        <span id="borrowListLink"onclick="window.location.href='/library/borrow/borrowList'">대출 이력 조회</span>
         <span id="bookRegistLink" onclick="window.location.href='/library/book/bookRegist'">도서 등록</span>
         <span id="signUpLink" onclick="window.location.href='/library/signUp'">회원 등록</span>
     </div>

@@ -12,7 +12,7 @@
     <div class="pageTitle">도서 수정</div>
     <div class="detailBox">
         <div class="detailBox2"></div>
-        <form id="bookEditForm" action="/library/book/bookEditOk" method="post">
+<%--        <form id="bookEditForm" action="/library/book/bookEditOk" method="post">--%>
             <div class="DetailForm">
                 <span>도서명</span>
                 <input class="detailFormBox" placeholder="도서명을 입력해주세요." id="bookTitle" name="bookTitle"
@@ -37,12 +37,16 @@
                 <span>출판연도</span>
                 <input class="detailFormBox" placeholder="출판연도를 입력해주세요." id="publishedYear" name="publishedYear"
                        value="${bookEdit.publishedYear}"/>
-                <button class="detailBtn2" type="button" onclick="editSubmit()">완료</button>
-                <button class="detailBtn2" type="button" onclick="toBookDetail(${bookEdit.bookNum})">취소</button>
             </div>
 
-        </form>
     </div>
+
+<%--        </form>--%>
+        <div class="btnBox2">
+        <button class="detailBtn2" type="button" onclick="editSubmit()">완료</button>
+        <button class="detailBtn2" type="button" onclick="toBookDetail(${bookEdit.bookNum})">취소</button>
+    </div>
+
 </div>
 <script>
     function editSubmit() {

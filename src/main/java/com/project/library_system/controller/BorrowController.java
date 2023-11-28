@@ -1,5 +1,6 @@
 package com.project.library_system.controller;
 
+import com.project.library_system.dto.BookDTO;
 import com.project.library_system.dto.BorrowDTO;
 import com.project.library_system.service.BorrowService;
 import jakarta.transaction.Transactional;
@@ -21,12 +22,13 @@ public class BorrowController {
     private final BorrowService service;
 
     // 대출 정보 조회
-    @GetMapping("/borrowList/{userId}")
-    public String borrowList(@PathVariable String userId, Model model) {
-        List<BorrowDTO> borrowList = service.borrowList(userId);
+    @GetMapping("/borrowList")
+    public String borrowList(Model model) {
+        List<BorrowDTO> borrowList = service.borrowList();
         model.addAttribute("borrowList", borrowList);
-        return "borrowList"; // 대출 정보를 보여줄 JSP 페이지 이름
+        return "/library/borrow/borrowList"; // 대출 정보를 보여줄 JSP 페이지 이름
     }
+
 
     // 대출하기
     @PostMapping("/borrowBook/{bookNum}")

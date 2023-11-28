@@ -15,8 +15,8 @@ public class BorrowServiceImpl implements BorrowService {
     private final BorrowDAO dao;
 
     @Override
-    public List<BorrowDTO> borrowList(String userId) {
-        return dao.borrowList(userId);
+    public List<BorrowDTO> borrowList() {
+        return dao.borrowList();
     }
 
     @Override

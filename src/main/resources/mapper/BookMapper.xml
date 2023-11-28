@@ -43,4 +43,10 @@
             publishedYear = #{publishedYear}
         WHERE bookNum = #{bookNum}
     </update>
+    <!-- 도서 삭제 -->
+    <delete id="bookDel" parameterType="com.project.library_system.dto.BookDTO">
+        DELETE
+        FROM BOOK
+        WHERE bookNum = #{bookNum}
+    </delete>
 </mapper>

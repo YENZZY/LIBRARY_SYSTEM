@@ -6,10 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.project.library_system.PaginationUtil;
 
 import java.util.List;
-import java.util.Map;
 
 //primary : 여러 개의 빈이 존재할 때 해당 클래스를 우선적으로 선택
 @Service
@@ -54,6 +52,10 @@ public class BookServiceImpl implements BookService {
 
         // Add bookNum as a flash attribute for redirection
         redirectAttributes.addFlashAttribute("bookNum", bookDTO.getBookNum());
+    }
+    @Override
+    public void bookDel(int bookNum){
+        dao.bookDel(bookNum);
     }
 
 }

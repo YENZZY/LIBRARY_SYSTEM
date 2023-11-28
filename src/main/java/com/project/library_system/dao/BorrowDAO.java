@@ -11,7 +11,7 @@ import java.util.List;
 public interface BorrowDAO {
 
     // 대출 정보 조회
-    List<BorrowDTO> borrowList(String userId);
+    List<BorrowDTO> borrowList();
 
     // 대출하기
     void borrowBook( int bookNum ,String userId);

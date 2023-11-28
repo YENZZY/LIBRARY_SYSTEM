@@ -2,7 +2,9 @@ package com.project.library_system.controller;
 
 import com.project.library_system.dto.BookDTO;
 import com.project.library_system.service.BookService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -87,5 +89,17 @@ public class BookController {
         return "redirect:/library/main";
     }
 
+    //도서 삭제
+    @PostMapping("/bookDel/{bookNum}")
+    @ResponseBody
+    @Transactional
+    public ResponseEntity<String> bookDel(@PathVariable int bookNum) {
+        try {
+            service.bookDel(bookNum);
+            return ResponseEntity.ok("도서 삭제가 완료되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("도서 삭제 중 오류 발생");
+        }
+    }
 
 }

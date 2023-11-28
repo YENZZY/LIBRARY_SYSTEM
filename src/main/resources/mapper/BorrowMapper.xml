@@ -4,8 +4,9 @@
     <!-- 대출 정보 조회 -->
     <select id="borrowList" resultType="com.project.library_system.dto.BorrowDTO">
         SELECT *
-        FROM BORROW
-        WHERE userId = #{userId}
+        FROM BOOK
+                 LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum
+        WHERE BOOK.status = "대출중"
     </select>
 
     <!-- 대출하기 -->
