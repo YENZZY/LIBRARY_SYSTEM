@@ -8,11 +8,12 @@
 <body>
 <header>
     <div style="min-width: 350px; display: flex; justify-content: space-between; float: left;">
-        <span id="borrowListLink"onclick="window.location.href='/library/borrow/borrowList'">대출 이력 조회</span>
+        <span id="borrowListLink" onclick="window.location.href='/library/borrow/borrowList'">대출 이력 조회</span>
         <span id="bookRegistLink" onclick="window.location.href='/library/book/bookRegist'">도서 등록</span>
         <span id="signUpLink" onclick="window.location.href='/library/signUp'">회원 등록</span>
     </div>
-    <span class="logo" onclick="main()">도서 관리 시스템</span>
+    <span class="logo" id="logoLink">도서 관리 시스템</span>
+    <span class="logo" id="mainLink" onclick="main()">도서 관리 시스템</span>
     <span id="nicknameSpan" class="nickname">${userId}</span>
     <button id="logoutButton" type="submit" onclick="logout()">로그아웃</button>
 </header>
@@ -39,6 +40,8 @@
         var signUpLink = document.getElementById("signUpLink");
         var nicknameSpan = document.getElementById("nicknameSpan");
         var logoutButton = document.getElementById("logoutButton");
+        var mainLink = document.getElementById("mainLink");
+        var logoLink = document.getElementById("logoLink");
 
         if (user != null) {
             nicknameSpan.textContent = "";
@@ -46,6 +49,8 @@
             bookRegistLink.style.display = "none";
             signUpLink.style.display = "none";
             borrowListLink.style.display = "none";
+            mainLink.style.display = "none";
+            logoLink.style.display = "inline";
 
             // 관리자 여부에 따라 헤더 업데이트
             if (user.admin === "관리자") {
@@ -54,12 +59,17 @@
                 bookRegistLink.style.display = "inline";
                 signUpLink.style.display = "inline";
                 borrowListLink.style.display = "inline";
+                mainLink.style.display = "inline";
+                logoLink.style.display = "none";
+
             } else if (user.admin === "회원") {
                 nicknameSpan.textContent = user.userId;
                 logoutButton.style.display = "inline";
                 bookRegistLink.style.display = "none";
                 signUpLink.style.display = "none";
                 borrowListLink.style.display = "inline";
+                mainLink.style.display = "inline";
+                logoLink.style.display = "none";
             }
         }
     }
