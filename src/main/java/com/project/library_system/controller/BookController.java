@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.awt.print.Book;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -78,16 +79,10 @@ public class BookController {
 
 
     //도서 수정 데이터 보내기
-    //RequestBody: 반환값 본문에 저장
-    //Map 응답 데이터 담는 객체
-    @PostMapping("/library/book/bookEditOk")
-    public String bookEditOk(@ModelAttribute BookDTO bookDTO, @RequestParam Integer bookNum, RedirectAttributes redirectAttributes) {
-        bookDTO.setBookNum(bookNum);
-
-        service.bookEditOk(bookDTO, redirectAttributes);
-
-        // Redirect to the bookDetail page with the actual book number
-        return "redirect:/library/main";
+    @PostMapping("/book/bookEdit/bookEditOk")
+    public String bookEditOk(BookDTO bookDTO) {
+        service.bookEditOk(bookDTO);
+        return "redirect:/library/book/bookDetail/" + bookDTO.getBookNum();
     }
 
     //도서 삭제

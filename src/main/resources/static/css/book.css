@@ -127,13 +127,11 @@
 }
 
 /*btn*/
-#btnBox2 {
+.btnBox2 {
     width: 910px;
-    height: auto;
-    margin: 0 auto;
-    margin-bottom: 50px;
+    height: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
 }
 
 .detailBtn2 {
@@ -156,6 +154,10 @@
 }
 .detailBtn2:nth-child(2) {
     background: none;
+}
+
+form{
+    margin-bottom: 50px;
 }
 
 .bookOk {

@@ -30,7 +30,7 @@ public interface BookService {
     BookDTO bookEdit(Integer bookNum);
 
     //도서 수정 데이터
-    void bookEditOk(BookDTO bookDTO, RedirectAttributes redirectAttributes);
+    void bookEditOk(BookDTO bookDTO);
 
     //도서 삭제
     void bookDel(int bookNum);

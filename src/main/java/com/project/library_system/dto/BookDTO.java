@@ -25,4 +25,6 @@ public class BookDTO {
     private int pageNo;
     private int totalPage;
     private int pageSize;
+
+    private String admin;
 }

@@ -24,11 +24,12 @@ public class BookServiceImpl implements BookService {
     }
 
 
-//    --------
+    //    --------
     @Override
-    public List<BookDTO> searchBooks(String keyword){
-        return  dao.searchBooks(keyword);
+    public List<BookDTO> searchBooks(String keyword) {
+        return dao.searchBooks(keyword);
     }
+
     @Override
     public BookDTO detailBook(Integer bookNum) {
 
@@ -42,19 +43,17 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDTO bookEdit(Integer bookNum){
+    public BookDTO bookEdit(Integer bookNum) {
         return dao.bookEdit(bookNum);
     }
 
     @Override
-    public void bookEditOk(BookDTO bookDTO, RedirectAttributes redirectAttributes) {
-        dao.bookEditOk(bookDTO,redirectAttributes);
-
-        // Add bookNum as a flash attribute for redirection
-        redirectAttributes.addFlashAttribute("bookNum", bookDTO.getBookNum());
+    public void bookEditOk(BookDTO bookDTO) {
+        dao.bookEditOk(bookDTO);
     }
+
     @Override
-    public void bookDel(int bookNum){
+    public void bookDel(int bookNum) {
         dao.bookDel(bookNum);
     }
 

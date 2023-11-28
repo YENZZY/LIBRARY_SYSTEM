@@ -60,7 +60,7 @@
             <span>대출일</span>
             <div class="detailFormBox">
                  <span>
-        <fmt:formatDate value="${bookDetail.borrowDate}" pattern="yyyy-MM-dd" />
+        <fmt:formatDate value="${bookDetail.borrowDate}" pattern="yyyy-MM-dd"/>
     </span>
             </div>
         </div>
@@ -68,7 +68,7 @@
             <span>반납일</span>
             <div class="detailFormBox">
                <span>
-        <fmt:formatDate value="${bookDetail.returnDate}" pattern="yyyy-MM-dd" />
+        <fmt:formatDate value="${bookDetail.returnDate}" pattern="yyyy-MM-dd"/>
     </span>
             </div>
         </div>
@@ -78,13 +78,12 @@
         <div class="btnBox2">
             <button class="detailBtn" onclick="toBookEdit(${bookDetail.bookNum})">수정</button>
             <c:choose>
-                <c:when test="${bookDetail.status eq '대출 가능'}">
-                    <button class="detailBtn" onclick="borrowSubmit(${bookDetail.bookNum})">대출하기</button>
-
-                </c:when>
-                <c:when test="${bookDetail.status eq '대출중'}">
-                    <button class="detailBtn" onclick="returnSubmit(${bookDetail.bookNum})">반납하기</button>
-                </c:when>
+                        <c:when test="${bookDetail.status eq '대출 가능'}">
+                            <button class="detailBtn" onclick="borrowSubmit(${bookDetail.bookNum})">대출하기</button>
+                        </c:when>
+                        <c:when test="${bookDetail.status eq '대출중'}">
+                            <button class="detailBtn" onclick="returnSubmit(${bookDetail.bookNum})">반납하기</button>
+                        </c:when>
             </c:choose>
         </div>
     </div>
@@ -95,7 +94,7 @@
     }
 
     function borrowSubmit(bookNum) {
-        var userId = prompt("아이디를 입력해주세요 ㅇ:", "");
+        var userId = prompt("아이디를 입력해주세요 :", "");
 
         if (userId) {
             $.ajax({

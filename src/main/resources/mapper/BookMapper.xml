@@ -19,7 +19,10 @@
         SELECT *
         FROM BOOK
                  LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum
+                 LEFT JOIN USER ON BORROW.userId = USER.userId
         WHERE BOOK.bookNum = #{bookNum}
+
+
     </select>
     <!-- 도서 등록 -->
     <insert id="bookRegistOk" parameterType="com.project.library_system.dto.BookDTO">
@@ -37,9 +40,9 @@
     <update id="bookEditOk" parameterType="com.project.library_system.dto.BookDTO">
         UPDATE BOOK
         SET bookTitle     = #{bookTitle},
-            author        = #{author},
-            genre         = #{genre},
-            publisher     = #{publisher},
+            author         = #{author},
+            genre          = #{genre},
+            publisher      = #{publisher},
             publishedYear = #{publishedYear}
         WHERE bookNum = #{bookNum}
     </update>
