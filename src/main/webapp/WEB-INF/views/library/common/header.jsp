@@ -87,7 +87,7 @@
             success: function () {
                 window.location.href = "/library/login";
             },
-            error:function (){
+            error: function () {
                 console.error("로그아웃을 실패하였습니다.");
             }
         });

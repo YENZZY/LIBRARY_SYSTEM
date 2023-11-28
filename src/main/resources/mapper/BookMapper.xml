@@ -40,9 +40,9 @@
     <update id="bookEditOk" parameterType="com.project.library_system.dto.BookDTO">
         UPDATE BOOK
         SET bookTitle     = #{bookTitle},
-            author         = #{author},
-            genre          = #{genre},
-            publisher      = #{publisher},
+            author        = #{author},
+            genre         = #{genre},
+            publisher     = #{publisher},
             publishedYear = #{publishedYear}
         WHERE bookNum = #{bookNum}
     </update>

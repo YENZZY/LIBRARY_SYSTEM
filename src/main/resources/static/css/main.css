@@ -54,9 +54,10 @@ form {
     height: 60px;
     width: 800px;
 }
+
 /*검색 버튼*/
 #searchBtn {
-    margin:0 auto;
+    margin: 0 auto;
     width: 150px;
     display: flex;
     justify-content: left;
@@ -74,14 +75,14 @@ form {
 /*검색어*/
 .searchWord {
     font-size: 16px;
-    font-family: 'reco',sans-serif;
+    font-family: 'reco', sans-serif;
     width: 150px;
     display: inline-block;
     text-align: center;
     justify-content: right;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     margin-left: 750px;
     margin-bottom: 0;
 }
@@ -129,11 +130,11 @@ form {
     cursor: pointer;
 }
 
-.listTextBox:first-child{
-    cursor:default;
+.listTextBox:first-child {
+    cursor: default;
 }
 
-.listTextBox:nth-child(2){
+.listTextBox:nth-child(2) {
     margin-top: 70px;
 }
 
@@ -159,16 +160,17 @@ form {
 .bookOk {
     color: #439AFF;
 }
+
 .bookNo {
     color: #FF6363;
 }
 
 /*대출 정보 조회*/
-#dateBox{
+#dateBox {
     overflow: visible;
     padding: 20px 13px;
 }
 
-#borrowId{
- font-weight: bolder;
+#borrowId {
+    font-weight: bolder;
 }

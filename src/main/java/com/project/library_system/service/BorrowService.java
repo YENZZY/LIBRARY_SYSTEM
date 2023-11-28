@@ -9,7 +9,7 @@ public interface BorrowService {
     List<BorrowDTO> borrowList();
 
     // 대출하기
-    void borrowBook( int bookNum ,String userId);
+    void borrowBook(int bookNum, String userId);
 
     // 반납하기시 대출 정보 삭제
     void returnBook(int bookNum);

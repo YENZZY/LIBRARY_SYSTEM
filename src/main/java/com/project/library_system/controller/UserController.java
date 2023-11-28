@@ -17,15 +17,14 @@ import java.util.Map;
 @RequestMapping("/library")
 public class UserController {
 
-   @Autowired
-   @Qualifier("userServiceImpl")
-   UserService service;
-
+    @Autowired
+    @Qualifier("userServiceImpl")
+    UserService service;
 
 
     // 로그인
     @GetMapping("/login")
-    public String login(){
+    public String login() {
 
         return "library/login";
     }
@@ -63,15 +62,15 @@ public class UserController {
 
     // 회원가입
     @GetMapping("/signUp")
-    public String signUp(){
+    public String signUp() {
         return "library/signUp";
     }
 
     // 회원가입 데이터 보네기
     @PostMapping("/signUpOk")
-    public String signUpOk(@ModelAttribute UserDTO userDTO, Model model){
+    public String signUpOk(@ModelAttribute UserDTO userDTO, Model model) {
         service.signUpOk(userDTO);
-        model.addAttribute("signUpOk",userDTO);
+        model.addAttribute("signUpOk", userDTO);
 
         return "redirect:/library/login";
     }

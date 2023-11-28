@@ -21,8 +21,8 @@ public class BorrowServiceImpl implements BorrowService {
 
     @Override
     public void borrowBook(int bookNum, String userId) {
-        dao.borrowBook(bookNum,userId);
-        dao.updateBookStatusBorrow(bookNum,userId);
+        dao.borrowBook(bookNum, userId);
+        dao.updateBookStatusBorrow(bookNum, userId);
     }
 
     @Override

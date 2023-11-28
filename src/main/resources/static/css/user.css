@@ -131,6 +131,7 @@
     line-height: 70px;
     padding-top: 10px;
 }
+
 /* 회원가입 인풋 박스 디자인 */
 .signUpForm {
     width: 650px;
@@ -197,13 +198,13 @@ label input {
     vertical-align: middle;
 }
 
-form{
+form {
     margin: 0;
     padding: 0;
 }
 
 /*관리자 유무*/
-.radioBox{
+.radioBox {
     cursor: pointer;
 }
 
@@ -213,17 +214,18 @@ form{
     height: auto;
     max-height: 30px;
     font-size: 20px;
-    font-family: 'skybori',sans-serif;
+    font-family: 'skybori', sans-serif;
     padding-left: 200px;
     padding-top: 15px;
 }
+
 /*비밀번호 확인*/
 #passwordMsg {
     width: auto;
     height: auto;
     max-height: 30px;
     font-size: 20px;
-    font-family: 'skybori',sans-serif;
+    font-family: 'skybori', sans-serif;
     padding-left: 200px;
     padding-top: 5px;
 }

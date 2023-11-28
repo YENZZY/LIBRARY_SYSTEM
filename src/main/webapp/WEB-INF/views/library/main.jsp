@@ -30,9 +30,10 @@
         </div>
         <c:choose>
             <c:when test="${not empty bookListAll}">
-                <c:set var="currentPage" value="${not empty param.page ? param.page : 1}" />
-                <c:set var="itemsPerPage" value="10" />
-                <c:forEach var="book" items="${bookListAll}" begin="${((currentPage - 1) * itemsPerPage)}" end="${(currentPage * itemsPerPage) - 1}">
+                <c:set var="currentPage" value="${not empty param.page ? param.page : 1}"/>
+                <c:set var="itemsPerPage" value="10"/>
+                <c:forEach var="book" items="${bookListAll}" begin="${((currentPage - 1) * itemsPerPage)}"
+                           end="${(currentPage * itemsPerPage) - 1}">
                     <ul class="listTextBox" onclick="toBookDetail(${book.bookNum})">
                         <li>${book.bookNum}</li>
                         <li>${book.bookTitle}</li>
@@ -63,7 +64,8 @@
                         ${index}
                 </button>
             </c:forEach>
-            <button onclick="handleClickPage(${currentPage + 1})" disabled="${currentPage == (bookListAll.size() / itemsPerPage)}">
+            <button onclick="handleClickPage(${currentPage + 1})"
+                    disabled="${currentPage == (bookListAll.size() / itemsPerPage)}">
                 다음
             </button>
         </c:if>

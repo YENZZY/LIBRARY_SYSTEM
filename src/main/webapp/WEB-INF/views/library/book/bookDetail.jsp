@@ -53,7 +53,7 @@
         <div class="DetailForm">
             <span>도서상태</span>
             <div class="detailFormBox">
-                <span class="${bookDetail.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${bookDetail.status} (아이디 : ${bookDetail.userId})</span>
+                <span class="${bookDetail.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${bookDetail.status} (대출자 : ${bookDetail.userId})</span>
             </div>
         </div>
         <div class="DetailForm">
@@ -78,12 +78,12 @@
         <div class="btnBox2">
             <button class="detailBtn" onclick="toBookEdit(${bookDetail.bookNum})">수정</button>
             <c:choose>
-                        <c:when test="${bookDetail.status eq '대출 가능'}">
-                            <button class="detailBtn" onclick="borrowSubmit(${bookDetail.bookNum})">대출하기</button>
-                        </c:when>
-                        <c:when test="${bookDetail.status eq '대출중'}">
-                            <button class="detailBtn" onclick="returnSubmit(${bookDetail.bookNum})">반납하기</button>
-                        </c:when>
+                <c:when test="${bookDetail.status eq '대출 가능'}">
+                    <button class="detailBtn" onclick="borrowSubmit(${bookDetail.bookNum})">대출하기</button>
+                </c:when>
+                <c:when test="${bookDetail.status eq '대출중'}">
+                    <button class="detailBtn" onclick="returnSubmit(${bookDetail.bookNum})">반납하기</button>
+                </c:when>
             </c:choose>
         </div>
     </div>

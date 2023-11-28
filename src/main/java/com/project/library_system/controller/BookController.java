@@ -31,7 +31,6 @@ public class BookController {
     //도서 목록 페이징
 
 
-
     // 도서 검색
     @GetMapping("/book/search")
     public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
@@ -61,7 +60,7 @@ public class BookController {
     // 도서 등록 처리
     // @ModelAttribute : 컨트롤러 메서드에 파라미터로 전달되는 객체를 모델에 자동으로 추가 / HTML 폼에서 입력된 데이터를 받아와서 객체로 변환
     @PostMapping("/book/bookRegistOk")
-    public String bookRegistOk(@ModelAttribute BookDTO bookDTO, Model model){
+    public String bookRegistOk(@ModelAttribute BookDTO bookDTO, Model model) {
         service.bookRegistOk(bookDTO);
         model.addAttribute("bookRegistOk", bookDTO);
 

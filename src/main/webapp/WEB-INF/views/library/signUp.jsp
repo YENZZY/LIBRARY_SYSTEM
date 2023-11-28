@@ -10,25 +10,26 @@
 <body>
 <div id="pageBody">
     <form action="/library/signUpOk" method="post" id="signUpForm">
-    <div class="signUpBox">
-        <div class="signUpBox2">
-            회원가입
-        </div>
-        <ul class="signUpForm">
-            <li>아이디
-                <input class="inputBox" type="text" placeholder="5~12자 영문, 숫자입니다." name="userId" id="userId">
-            </li>
-            <span id="idCheckResult"></span>
-            <li>비밀번호
-                <input class="inputBox" type="password" placeholder="비밀번호는 8~15자입니다." name="password" id="password">
-            </li>
-            <li style="height: 85px; line-height: 105px; ">비밀번호 확인
-                <input class="inputBox" type="password" placeholder="비밀번호를 재입력해주세요." name="passwordOk" id="passwordOk" style="margin-top: 25px;">
-            </li>
-            <span id="passwordMsg"></span>
-            <li>이메일
-                <input class="inputBox" type="email" placeholder="이메일을 입력해주세요." name="email">
-            </li>
+        <div class="signUpBox">
+            <div class="signUpBox2">
+                회원가입
+            </div>
+            <ul class="signUpForm">
+                <li>아이디
+                    <input class="inputBox" type="text" placeholder="5~12자 영문, 숫자입니다." name="userId" id="userId">
+                </li>
+                <span id="idCheckResult"></span>
+                <li>비밀번호
+                    <input class="inputBox" type="password" placeholder="비밀번호는 8~15자입니다." name="password" id="password">
+                </li>
+                <li style="height: 85px; line-height: 105px; ">비밀번호 확인
+                    <input class="inputBox" type="password" placeholder="비밀번호를 재입력해주세요." name="passwordOk"
+                           id="passwordOk" style="margin-top: 25px;">
+                </li>
+                <span id="passwordMsg"></span>
+                <li>이메일
+                    <input class="inputBox" type="email" placeholder="이메일을 입력해주세요." name="email">
+                </li>
                 <label>
                     <span style="margin: 0 100px 0 20px">관리자 여부</span>
                     <span>회원</span>
@@ -37,18 +38,20 @@
                     <input class="radioBox" type="radio" name="admin" value="관리자"/>
                 </label>
 
-        </ul>
+            </ul>
 
-    </div>
-    <div class="btnstyle">
-        <button type="submit" onclick="submitForm()" style="background-color: #FFFBF5">완료</button>
-        <button type="button" onclick="window.location.href='/library/login'" style="background-color: #EFE7DD">취소</button>
-    </div>
+        </div>
+        <div class="btnstyle">
+            <button type="submit" onclick="submitForm()" style="background-color: #FFFBF5">완료</button>
+            <button type="button" onclick="window.location.href='/library/login'" style="background-color: #EFE7DD">취소
+            </button>
+        </div>
     </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     <%--전송 버튼--%>
+
     function submitForm() {
         var isConfirmed = confirm("회원 가입을 하시겠습니까?");
         if (isConfirmed) {
@@ -56,14 +59,16 @@
         }
         return false;
     }
+
     <%--아이디 중복 확인--%>
+
     function checkUserId() {
         var userId = document.getElementById("userId").value;
 
         $.ajax({
             url: "/library/checkUserId",
             type: "POST",
-            data: { userId: userId },
+            data: {userId: userId},
             success: function (result) {
                 // 서버에서 받은 결과에 따라 메시지 표시
                 var idCheckResult = document.getElementById("idCheckResult");
@@ -83,17 +88,17 @@
 
     document.getElementById("userId").addEventListener("input", checkUserId);
 
-//비밀번호 중복 확인
+    //비밀번호 중복 확인
     $('#password, #passwordOk').on('input', function () {
         var password = $('#password').val();
         var passwordOk = $('#passwordOk').val();
 
         var passwordMsg = $('#passwordMsg');
 
-        if(password==passwordOk){
-            passwordMsg.text('비밀번호가 일치합니다.').css('color','#439AFF');
-        }else {
-            passwordMsg.text('비밀번호가 일치하지 않습니다.').css('color','#FF6363');
+        if (password == passwordOk) {
+            passwordMsg.text('비밀번호가 일치합니다.').css('color', '#439AFF');
+        } else {
+            passwordMsg.text('비밀번호가 일치하지 않습니다.').css('color', '#FF6363');
         }
     });
 </script>

@@ -16,7 +16,6 @@ public interface BookService {
     //도서 목록 페이징
 
 
-
     // 도서 검색
     List<BookDTO> searchBooks(String keyword);
 

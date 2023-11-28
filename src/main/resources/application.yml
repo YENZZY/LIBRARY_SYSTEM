@@ -21,9 +21,9 @@ mybatis:
     map-underscore-to-camel-case: true
 
 server:
-    servlet:
-      encoding:
-        force-response: true
+  servlet:
+    encoding:
+      force-response: true
 
 http:
   encoding:

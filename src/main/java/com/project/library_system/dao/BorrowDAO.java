@@ -14,12 +14,14 @@ public interface BorrowDAO {
     List<BorrowDTO> borrowList();
 
     // 대출하기
-    void borrowBook( int bookNum ,String userId);
+    void borrowBook(int bookNum, String userId);
+
     //대출하기시 도서 상태 변경
-    void updateBookStatusBorrow(int bookNum ,String userId);
+    void updateBookStatusBorrow(int bookNum, String userId);
 
     //반납하기시 대출 정보 삭제
     void deleteBorrowRecord(int bookNum);
+
     //반납하기시 도서 상태 변경
     void updateBookStatus(int bookNum);
 }

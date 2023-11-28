@@ -112,12 +112,12 @@
     width: 120px;
 }
 
-.btnBox2{
+.btnBox2 {
     display: flex;
     justify-content: right;
 }
 
-    /*bookRegist & bookEdit*/
+/*bookRegist & bookEdit*/
 
 .detailForm input {
     text-align: center;
@@ -150,23 +150,25 @@
     cursor: pointer;
 }
 
-.detailBtn2:first-child{
+.detailBtn2:first-child {
 }
+
 .detailBtn2:nth-child(2) {
     background: none;
 }
 
-form{
+form {
     margin-bottom: 50px;
 }
 
 .bookOk {
     color: #439AFF;
 }
+
 .bookNo {
     color: #FF6363;
 }
 
-#bookRegistForm{
+#bookRegistForm {
     margin: 0;
 }
