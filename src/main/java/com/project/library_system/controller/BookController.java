@@ -1,16 +1,13 @@
 package com.project.library_system.controller;
 
-import com.project.library_system.dao.BookDAO;
 import com.project.library_system.dto.BookDTO;
 import com.project.library_system.service.BookService;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -27,6 +24,9 @@ public class BookController {
         model.addAttribute("bookListAll", bookListAll);
         return "library/main";
     }
+    //도서 목록 페이징
+
+
 
     // 도서 검색
     @GetMapping("/book/search")
@@ -65,9 +65,27 @@ public class BookController {
     }
 
     // 도서 수정
-    @GetMapping("/book/bookEdit")
-    public String bookEdit() {
+    @GetMapping("/book/bookEdit/{bookNum}")
+    public String bookEdit(@PathVariable Integer bookNum, Model model) {
+        BookDTO bookEdit = service.bookEdit(bookNum);
+        model.addAttribute("bookEdit", bookEdit);
+
         return "library/book/bookEdit";
     }
+
+
+    //도서 수정 데이터 보내기
+    //RequestBody: 반환값 본문에 저장
+    //Map 응답 데이터 담는 객체
+    @PostMapping("/library/book/bookEditOk")
+    public String bookEditOk(@ModelAttribute BookDTO bookDTO, @RequestParam Integer bookNum, RedirectAttributes redirectAttributes) {
+        bookDTO.setBookNum(bookNum);
+
+        service.bookEditOk(bookDTO, redirectAttributes);
+
+        // Redirect to the bookDetail page with the actual book number
+        return "redirect:/library/main";
+    }
+
 
 }

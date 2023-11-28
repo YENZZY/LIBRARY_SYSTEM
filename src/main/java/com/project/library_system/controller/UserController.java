@@ -54,7 +54,8 @@ public class UserController {
 
     // 로그아웃
     @PostMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session,String userId) {
+        service.logout(userId);
         // 세션 무효화
         session.invalidate();
         return "redirect:/library/login?logout";
@@ -88,7 +89,8 @@ public class UserController {
     // 헤더 정보
     @GetMapping("/headerInfo")
     @ResponseBody
-    public UserDTO headerInfo(HttpSession session) {
+    public UserDTO headerInfo(HttpSession session,String userId) {
+        service.headerInfo(userId);
         UserDTO user = (UserDTO) session.getAttribute("login");
         return user;
     }

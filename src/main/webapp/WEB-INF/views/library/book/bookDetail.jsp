@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/book.css">
@@ -51,61 +53,101 @@
         <div class="DetailForm">
             <span>도서상태</span>
             <div class="detailFormBox">
-                <span class="${bookDetail.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${bookDetail.status}</span>
+                <span class="${bookDetail.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${bookDetail.status} (아이디 : ${bookDetail.userId})</span>
             </div>
         </div>
         <div class="DetailForm">
             <span>대출일</span>
             <div class="detailFormBox">
-                <span>${bookDetail.borrowDate}</span>
+                 <span>
+        <fmt:formatDate value="${bookDetail.borrowDate}" pattern="yyyy-MM-dd" />
+    </span>
             </div>
         </div>
         <div class="DetailForm">
             <span>반납일</span>
             <div class="detailFormBox">
-                <span>${bookDetail.returnDate}</span>
+               <span>
+        <fmt:formatDate value="${bookDetail.returnDate}" pattern="yyyy-MM-dd" />
+    </span>
             </div>
         </div>
     </div>
     <div class="btnBox">
         <button class="detailBtn" onclick="main()">목록</button>
         <div class="btnBox2">
-        <button class="detailBtn" onclick="toBookEdit(${bookDetail.bookNum})">수정</button>
-        <form onsubmit="borrowSubmit()">
-            <button class="detailBtn">대출하기</button>
-        </form>
+            <button class="detailBtn" onclick="toBookEdit(${bookDetail.bookNum})">수정</button>
+            <c:choose>
+                <c:when test="${bookDetail.status eq '대출 가능'}">
+                    <button class="detailBtn" onclick="borrowSubmit(${bookDetail.bookNum})">대출하기</button>
+
+                </c:when>
+                <c:when test="${bookDetail.status eq '대출중'}">
+                    <button class="detailBtn" onclick="returnSubmit(${bookDetail.bookNum})">반납하기</button>
+                </c:when>
+            </c:choose>
         </div>
     </div>
 </div>
 <script>
-    function toBookEdit() {
-        window.location.href="/library/book/bookEdit";
+    function toBookEdit(bookNum) {
+        window.location.href = '/library/book/bookEdit/' + bookNum;
     }
 
-    function borrowSubmit() {
-        var isConfirmed = confirm("도서 대출을 하시겠습니까?");
+    function borrowSubmit(bookNum) {
+        var userId = prompt("아이디를 입력해주세요 ㅇ:", "");
 
-        if (isConfirmed) {
-            alert("도서 대출이 완료되었습니다.");
-            return true;
+        if (userId) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/library/borrow/borrowBook/" + bookNum,
+                data: JSON.stringify({bookNum: bookNum, userId: userId}),
+                success: function (response) {
+                    if (response) {
+                        alert(response);
+                        location.reload();
+                    } else {
+                        alert("대출에 실패하였습니다.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("대출 실패 : 없는 아이디 입니다.");
+                }
+            });
         } else {
-            //취소
             alert("도서 대출이 취소되었습니다.");
-            return false;
         }
     }
-    //반납하기
-    function returnSubmit() {
+
+
+    function returnSubmit(bookNum) {
         var isConfirmed = confirm("도서 반납을 하시겠습니까?");
 
         if (isConfirmed) {
-            alert("도서 반납이 완료되었습니다.");
-            return true;
+            $.ajax({
+                type: "POST",
+                url: "/library/borrow/returnBook/" + bookNum,
+                success: function (response) {
+                    if (response) {
+                        alert("도서 반납이 완료되었습니다.");
+                        location.reload();
+                    } else {
+                        alert("반납에 실패하였습니다.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("반납 중 오류 발생");
+                }
+            });
         } else {
-            //취소
             alert("도서 반납이 취소되었습니다.");
-            return false;
         }
+    }
+
+
+    function main() {
+        window.location.href = '/library/main';
     }
 </script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>

@@ -12,46 +12,51 @@
     <div class="pageTitle">도서 수정</div>
     <div class="detailBox">
         <div class="detailBox2"></div>
-        <div class="DetailForm">
-            <span>도서명</span>
-            <input class="detailFormBox" placeholder="도서명을 입력해주세요." value="${Editbook.bookTitle}"/>
-        </div>
-        <div class="DetailForm">
-            <span>저자</span>
-            <input class="detailFormBox" placeholder="저자를 입력해주세요." value="${Editbook.author}"/>
-        </div>
-        <div class="DetailForm">
-            <span>장르</span>
-            <input class="detailFormBox" placeholder="장르를 입력해주세요." value="${Editbook.genre}"/>
-        </div>
-        <div class="DetailForm">
-            <span>출판사</span>
-            <input class="detailFormBox" placeholder="출판사를 입력해주세요." value="${Editbook.publisher}"/>
-        </div>
-        <div class="DetailForm">
-            <span>출판연도</span>
-            <input class="detailFormBox" placeholder="출판연도를 입력해주세요." value="${Editbook.publishedYear}"/>
-        </div>
+        <form id="bookEditForm" action="/library/book/bookEditOk" method="post">
+            <div class="DetailForm">
+                <span>도서명</span>
+                <input class="detailFormBox" placeholder="도서명을 입력해주세요." id="bookTitle" name="bookTitle"
+                       value="${bookEdit.bookTitle}"/>
+            </div>
+            <div class="DetailForm">
+                <span>저자</span>
+                <input class="detailFormBox" placeholder="저자를 입력해주세요." id="author" name="author"
+                       value="${bookEdit.author}"/>
+            </div>
+            <div class="DetailForm">
+                <span>장르</span>
+                <input class="detailFormBox" placeholder="장르를 입력해주세요." id="genre" name="genre"
+                       value="${bookEdit.genre}"/>
+            </div>
+            <div class="DetailForm">
+                <span>출판사</span>
+                <input class="detailFormBox" placeholder="출판사를 입력해주세요." id="publisher" name="publisher"
+                       value="${bookEdit.publisher}"/>
+            </div>
+            <div class="DetailForm">
+                <span>출판연도</span>
+                <input class="detailFormBox" placeholder="출판연도를 입력해주세요." id="publishedYear" name="publishedYear"
+                       value="${bookEdit.publishedYear}"/>
+                <button class="detailBtn2" type="button" onclick="editSubmit()">완료</button>
+                <button class="detailBtn2" type="button" onclick="toBookDetail(${bookEdit.bookNum})">취소</button>
+            </div>
+
+        </form>
     </div>
-    <form id="btnBox2" onsubmit="editSubmit()">
-        <button class="detailBtn2" type="submit">완료</button>
-        <button class="detailBtn2" type="button" onclick="toBookDetail(${Editbook.bookNum})">취소</button>
-    </form>
 </div>
 <script>
     function editSubmit() {
         var isConfirmed = confirm("도서 수정을 하시겠습니까?");
-
         if (isConfirmed) {
-            alert("도서 수정이 완료되었습니다.");
-            return true;
-        } else {
-            //취소
-            alert("도서 수정이 취소되었습니다.");
-            return false;
+            document.getElementById("bookEditForm").submit();
         }
     }
+
+    function toBookDetail(bookNum) {
+        window.location.href = '/library/book/bookDetail/' + bookNum;
+    }
 </script>
+
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
 </html>

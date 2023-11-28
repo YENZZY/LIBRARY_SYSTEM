@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.library_system.dao.BorrowDAO">
+    <!-- 대출 정보 조회 -->
+    <select id="borrowList" resultType="com.project.library_system.dto.BorrowDTO">
+        SELECT *
+        FROM BORROW
+        WHERE userId = #{userId}
+    </select>
+
+    <!-- 대출하기 -->
+    <insert id="borrowBook" parameterType="com.project.library_system.dto.BorrowDTO">
+        INSERT INTO BORROW
+            (userId, bookNum)
+        VALUES (#{userId}, #{bookNum})
+    </insert>
+
+    <update id="updateBookStatusBorrow" parameterType="com.project.library_system.dto.BorrowDTO">
+        UPDATE BOOK
+        SET status = '대출중'
+        WHERE bookNum = #{bookNum};
+    </update>
+    <!-- 반납하기: 대출 정보 삭제 -->
+    <delete id="deleteBorrowRecord" parameterType="com.project.library_system.dto.BorrowDTO">
+        DELETE
+        FROM BORROW
+        WHERE bookNum = #{bookNum}
+    </delete>
+    <!-- 반납하기: 도서 상태 변경 -->
+    <update id="updateBookStatus" parameterType="com.project.library_system.dto.BorrowDTO">
+        UPDATE
+            BOOK
+        SET status = '대출 가능'
+        WHERE bookNum = #{bookNum}
+    </update>
+
 </mapper>

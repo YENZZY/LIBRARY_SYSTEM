@@ -3,19 +3,44 @@
 <mapper namespace="com.project.library_system.dao.BookDAO">
     <!--도서 목록-->
     <select id="bookListAll" resultType="com.project.library_system.dto.BookDTO">
-     SELECT * FROM BOOK
+        SELECT *
+        FROM BOOK
     </select>
+    <!--도서 목록 페이징-->
+
     <!--도서 검색-->
     <select id="searchBooks" resultType="com.project.library_system.dto.BookDTO">
-     SELECT * FROM BOOK WHERE bookTitle LIKE CONCAT('%', #{bookTitle}, '%')
+        SELECT *
+        FROM BOOK
+        WHERE bookTitle LIKE CONCAT('%', #{bookTitle}, '%')
     </select>
     <!-- 도서 상세 정보 조회 -->
     <select id="detailBook" resultType="com.project.library_system.dto.BookDTO">
-        SELECT * FROM BOOK LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum WHERE BOOK.bookNum = #{bookNum}
+        SELECT *
+        FROM BOOK
+                 LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum
+        WHERE BOOK.bookNum = #{bookNum}
     </select>
     <!-- 도서 등록 -->
     <insert id="bookRegistOk" parameterType="com.project.library_system.dto.BookDTO">
-        INSERT INTO BOOK ( bookTitle, author, genre, publisher, publishedYear)
-        VALUES ( #{bookTitle}, #{author}, #{genre}, #{publisher}, #{publishedYear})
+        INSERT INTO BOOK (bookTitle, author, genre, publisher, publishedYear)
+        VALUES (#{bookTitle}, #{author}, #{genre}, #{publisher}, #{publishedYear})
     </insert>
+    <!-- 도서 수정 -->
+    <select id="bookEdit" resultType="com.project.library_system.dto.BookDTO">
+        SELECT *
+        FROM BOOK
+                 LEFT JOIN BORROW ON BOOK.bookNum = BORROW.bookNum
+        WHERE BOOK.bookNum = #{bookNum}
+    </select>
+    <!-- 도서 수정 데이터 -->
+    <update id="bookEditOk" parameterType="com.project.library_system.dto.BookDTO">
+        UPDATE BOOK
+        SET bookTitle     = #{bookTitle},
+            author        = #{author},
+            genre         = #{genre},
+            publisher     = #{publisher},
+            publishedYear = #{publishedYear}
+        WHERE bookNum = #{bookNum}
+    </update>
 </mapper>

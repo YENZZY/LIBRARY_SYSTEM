@@ -16,4 +16,12 @@ public class BorrowDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date returnDate;
     private int borrowCount;
+
+    // Book 정보를 담을 추가적인 필드
+    private String bookTitle;
+    private String author;
+    private String genre;
+    private String publisher;
+    private int publishedYear;
+    private String status;
 }

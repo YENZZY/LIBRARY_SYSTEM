@@ -20,4 +20,9 @@ public class BookDTO {
     private Date borrowDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date returnDate;
+    private String userId;
+
+    private int pageNo;
+    private int totalPage;
+    private int pageSize;
 }

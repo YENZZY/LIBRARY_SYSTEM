@@ -5,8 +5,12 @@ import com.project.library_system.dto.BookDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.project.library_system.PaginationUtil;
 
 import java.util.List;
+import java.util.Map;
+
 //primary : 여러 개의 빈이 존재할 때 해당 클래스를 우선적으로 선택
 @Service
 @RequiredArgsConstructor
@@ -21,12 +25,12 @@ public class BookServiceImpl implements BookService {
         return dao.bookListAll();
     }
 
+
+//    --------
     @Override
-    public List<BookDTO> searchBooks(String keyword) {
-
-        return dao.searchBooks(keyword);
+    public List<BookDTO> searchBooks(String keyword){
+        return  dao.searchBooks(keyword);
     }
-
     @Override
     public BookDTO detailBook(Integer bookNum) {
 
@@ -37,6 +41,19 @@ public class BookServiceImpl implements BookService {
     public void bookRegistOk(BookDTO bookDTO) {
 
         dao.bookRegistOk(bookDTO);
+    }
+
+    @Override
+    public BookDTO bookEdit(Integer bookNum){
+        return dao.bookEdit(bookNum);
+    }
+
+    @Override
+    public void bookEditOk(BookDTO bookDTO, RedirectAttributes redirectAttributes) {
+        dao.bookEditOk(bookDTO,redirectAttributes);
+
+        // Add bookNum as a flash attribute for redirection
+        redirectAttributes.addFlashAttribute("bookNum", bookDTO.getBookNum());
     }
 
 }

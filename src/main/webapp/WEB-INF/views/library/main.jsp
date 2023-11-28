@@ -38,7 +38,7 @@
                         <li>${book.genre}</li>
                         <li>${book.publisher}</li>
                         <li>${book.publishedYear}</li>
-                        <li class="${book.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${book.status}</li>
+                        <li class="${book.status == '대출 가능' ? 'bookOk' : 'bookNo'}">${book.status}${book.userId}</li>
                     </ul>
                 </c:forEach>
             </c:when>
