@@ -12,6 +12,8 @@ env:
   S3_BUCKET_NAME: my-github-action-s3-bucket-library
   CODE_DEPLOY_APPLICATION_NAME: codedeploy-library
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: codedeploy-library-group
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 permissions:
   contents: read
