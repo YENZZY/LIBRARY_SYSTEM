@@ -7,15 +7,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-
-env:
-  AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: my-github-action-s3-bucket-library
-  CODE_DEPLOY_APPLICATION_NAME: codedeploy-library
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: codedeploy-library-group
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
 permissions:
   contents: read
 
@@ -23,7 +14,11 @@ jobs:
   deploy:
     name: build and upload to s3
     runs-on: ubuntu-latest
-
+env:
+  S3_BUCKET_NAME: my-github-action-s3-bucket-library
+  CODE_DEPLOY_APPLICATION_NAME: codedeploy-library
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: codedeploy-library-group
+  
     steps:
     # 1) 기본 체크아웃
     - name: Checkout
@@ -52,7 +47,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ap-northeast-2
         
     # AWS S3에 업로드
     - name: Upload to AWS S3
