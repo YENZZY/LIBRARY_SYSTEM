@@ -9,7 +9,7 @@ on:
 
 # flow에서 사용할 변수 같은 느낌입니다.
 env:
-  AWS_REGION: Asia/Seoul
+  AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: my-github-action-s3-bucket-library
   CODE_DEPLOY_APPLICATION_NAME: codedeploy-library
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: codedeploy-library-group
