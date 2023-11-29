@@ -9,16 +9,17 @@ on:
 
 permissions:
   contents: read
-
-jobs:
-  deploy:
-    name: build and upload to s3
-    runs-on: ubuntu-latest
+  
 env:
   S3_BUCKET_NAME: my-github-action-s3-bucket-library
   CODE_DEPLOY_APPLICATION_NAME: codedeploy-library
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: codedeploy-library-group
   
+jobs:
+  deploy:
+    name: build and upload to s3
+    runs-on: ubuntu-latest
+    
     steps:
     # 1) 기본 체크아웃
     - name: Checkout
