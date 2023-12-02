@@ -55,7 +55,7 @@
     <!-- 페이징 -->
     <div class='pagebox'>
         <c:if test="${not empty borrowList}">
-            <button onclick="handleClickPage(${currentPage - 1})" disabled="${currentPage == 1}">
+            <button onclick="handleClickPage(${currentPage - 1})">
                 이전
             </button>
 
@@ -67,8 +67,7 @@
                         ${index}
                 </button>
             </c:forEach>
-            <button onclick="handleClickPage(${currentPage + 1})"
-                    disabled="${currentPage == (bookListAll.size() / itemsPerPage)}">
+            <button onclick="handleClickPage(${currentPage + 1})">
                 다음
             </button>
 

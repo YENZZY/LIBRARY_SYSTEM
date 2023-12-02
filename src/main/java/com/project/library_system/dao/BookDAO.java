@@ -2,6 +2,7 @@ package com.project.library_system.dao;
 
 import com.project.library_system.dto.BookDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 @Mapper
 public interface BookDAO {
     // 도서 목록
+    List<BookDTO> bookListAllPage();
     List<BookDTO> bookListAll();
 
     //도서 목록 페이징

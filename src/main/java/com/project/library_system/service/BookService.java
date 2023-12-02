@@ -11,7 +11,10 @@ import java.util.Map;
 
 public interface BookService {
     // 도서 목록
+
     List<BookDTO> bookListAll();
+    List<BookDTO> bookListAllPage(int pageNo);
+
 
     //도서 목록 페이징
 

@@ -6,7 +6,15 @@
         SELECT *
         FROM BOOK
     </select>
+
     <!--도서 목록 페이징-->
+    <select id="bookListAllPage" resultType="com.project.library_system.dto.BookDTO">
+        SELECT
+        (@rownum:=@rownum+1) as pageNo,
+        b.*
+        FROM (SELECT @rownum:=0) r, BOOK b
+        ORDER BY pageNo;
+    </select>
 
     <!--도서 검색-->
     <select id="searchBooks" resultType="com.project.library_system.dto.BookDTO">

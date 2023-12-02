@@ -23,11 +23,14 @@ public class BookController {
 
     // 메인 페이지 (도서 검색 및 도서 목록)
     @GetMapping("/main")
-    public String bookListAll(Model model) {
+    public String bookListAllPage(@RequestParam(value = "page", defaultValue = "1") int pageNo, Model model) {
+        List<BookDTO> bookListAllPage = service.bookListAllPage(pageNo);
         List<BookDTO> bookListAll = service.bookListAll();
         model.addAttribute("bookListAll", bookListAll);
+        model.addAttribute("bookListAllPage", bookListAllPage);
         return "library/main";
     }
+
     //도서 목록 페이징
 
 
