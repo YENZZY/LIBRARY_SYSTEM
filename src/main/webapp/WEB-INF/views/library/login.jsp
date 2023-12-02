@@ -12,7 +12,7 @@
     <form method="post" action="/library/loginOk">
         <div class="loginBox">
             <div class="loginBox2">
-                로그인 testtesttest
+                로그인 test3222232
             </div>
             <div class="loginForm">
                 <li>아이디
