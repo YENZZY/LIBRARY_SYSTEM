@@ -19,10 +19,8 @@ else
 fi
 
 echo "> Deploy - $JAR_PATH "
-nohup java -jar $JAR_PATH &
+nohup java -jar $JAR_PATH > /dev/null 2> /dev/null < /dev/null &
 
-# 로그 파일 생성 및 로그 기록
-LOG_FILE="test.log"
-echo "스크립트가 실행되었습니다." >> $LOG_FILE
-echo "JAR_PATH: $JAR_PATH" >> $LOG_FILE
+# 로그 파일 생성
+echo "로그 기록" >> test.log
 
