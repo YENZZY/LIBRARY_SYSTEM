@@ -4,7 +4,7 @@ REPOSITORY=/home/ubuntu/
 cd $REPOSITORY
 
 APP_NAME=LIBRARY_SYSTEM
-JAR_NAME=$(ls $REPOSITORY | grep 'SNAPSHOT.jar' | tail -n 1)
+JAR_NAME=$(ls $REPOSITORY | grep 'SNAPSHOT.war' | tail -n 1)
 JAR_PATH=$REPOSITORY $JAR_NAME
 
 CURRENT_PID=$(pgrep -f $APP_NAME)
