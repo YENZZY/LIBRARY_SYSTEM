@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPOSITORY=/home/ubuntu/
+REPOSITORY=/home/ubuntu
 cd $REPOSITORY
 
 APP_NAME=LIBRARY_SYSTEM
