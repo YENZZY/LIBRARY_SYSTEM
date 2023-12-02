@@ -100,7 +100,6 @@ body {
 #pageBody {
     flex: 1;
     padding: 50px 100px;
-    min-height: calc(100vh - 300px); /* 헤더와 푸터의 높이를 제외한 나머지 공간을 차지하도록 설정 */
     display: flex;
     flex-direction: column;
 }
