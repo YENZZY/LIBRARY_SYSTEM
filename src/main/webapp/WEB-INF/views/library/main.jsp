@@ -87,13 +87,28 @@
     }
 
     // 페이지 클릭 처리
-    function handleClickPage(page) {
-        console.log('handleClickPage called with page:', page);
-        if (page > 0 && page <= ${Math.ceil(bookListAll.size() / itemsPerPage)}) {
-            console.log('Navigating to new page:', page);
-            location.href = '/library/main?page=' + page;
+                function handleClickPage(page) {
+                    console.log('handleClickPage called with page:', page);
+
+                    // 검색어가 있는 경우에만 처리
+                    if (${not empty searchKeyword}) {
+                        // 검색어를 encodeURIComponent를 사용하여 URL 인코딩
+                        var encodedSearchKeyword = encodeURIComponent('${searchKeyword}');
+
+                        if (page > 0 && page <= ${Math.ceil(searchResultList.size() / itemsPerPage)}) {
+                            console.log('Navigating to new page:', page);
+                            // 검색 결과에 대한 페이징 URL로 이동
+                            location.href = '/library/search?page=' + page + '&keyword=' + encodedSearchKeyword;
+                        }
+                    } else {
+                        // 검색어가 없는 경우에는 기존의 페이지 처리를 유지
+                        if (page > 0 && page <= ${Math.ceil(bookListAll.size() / itemsPerPage)}) {
+                            console.log('Navigating to new page:', page);
+                            location.href = '/library/main?page=' + page;
+            }
         }
     }
+
 </script>
 <%@ include file="/WEB-INF/views/library/common/footer.jsp" %>
 </body>
