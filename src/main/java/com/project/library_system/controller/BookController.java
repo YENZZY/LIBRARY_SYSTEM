@@ -31,16 +31,17 @@ public class BookController {
         return "library/main";
     }
 
-    //도서 목록 페이징
-
-
     // 도서 검색
     @GetMapping("/book/search")
     public String searchBooks(@RequestParam("keyword") String keyword, Model model) {
         List<BookDTO> searchResults = service.searchBooks(keyword);
-        model.addAttribute("bookListAll", searchResults);
-        model.addAttribute("searchKeyword", keyword); // 검색어를 모델에 추가
-        return "library/main"; // Forward to the main page
+        List<BookDTO> bookListAll = service.bookListAll();
+
+        model.addAttribute("bookListAllPage", searchResults);
+        model.addAttribute("bookListAll", bookListAll);
+        model.addAttribute("searchKeyword", keyword);
+
+        return "library/main";
     }
 
     // 도서 상세 정보

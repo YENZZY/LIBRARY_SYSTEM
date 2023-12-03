@@ -14,9 +14,8 @@ import java.util.Map;
 public interface BookDAO {
     // 도서 목록
     List<BookDTO> bookListAllPage();
-    List<BookDTO> bookListAll();
 
-    //도서 목록 페이징
+    List<BookDTO> bookListAll();
 
     // 도서 검색
     List<BookDTO> searchBooks(String keyword);

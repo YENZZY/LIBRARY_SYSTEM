@@ -55,7 +55,11 @@
     <!-- 페이징 -->
     <div class='pagebox'>
         <c:if test="${not empty borrowList}">
-            <button onclick="handleClickPage(${currentPage - 1})">
+            <button
+                    onclick="handleClickPage(${currentPage - 1})"
+                    style="color: ${currentPage > 1 ? '#AB8B61' : '#EEE1D7'}; ${currentPage > 1 ? '' : 'cursor: not-allowed;'}"
+                ${currentPage > 1 ? '' : 'disabled'}
+            >
                 이전
             </button>
 
@@ -67,10 +71,14 @@
                         ${index}
                 </button>
             </c:forEach>
-            <button onclick="handleClickPage(${currentPage + 1})">
+
+            <button
+                    onclick="handleClickPage(${currentPage + 1})"
+                    style="color: ${currentPage < Math.ceil(borrowList.size() / itemsPerPage) ? '#AB8B61' : '#EEE1D7'}; ${currentPage < Math.ceil(borrowList.size() / itemsPerPage) ? '' : 'cursor: not-allowed;'}"
+                ${currentPage < Math.ceil(borrowList.size() / itemsPerPage) ? '' : 'disabled'}
+            >
                 다음
             </button>
-
         </c:if>
     </div>
 </div>

@@ -34,9 +34,9 @@ public class BookServiceImpl implements BookService {
 
         List<BookDTO> filteredBookList = new ArrayList<>();
 
-        for(BookDTO book : dao.bookListAllPage()) {
+        for (BookDTO book : dao.bookListAllPage()) {
             int bookPageNo = book.getPageNo();
-            if(bookPageNo >= startItemIndex && bookPageNo <= endItemIndex) {
+            if (bookPageNo >= startItemIndex && bookPageNo <= endItemIndex) {
                 filteredBookList.add(book);
             }
         }
